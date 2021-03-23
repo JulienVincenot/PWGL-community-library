@@ -1,0 +1,13 @@
+:section-start "bach: automated composer's helper"
+
+:bodytext
+"bach: automated composer's helper is a cross-platform set of patches and externals for Max, aimed to bring the richness of computer-aided composition into the real-time world."
+
+"bach provides you with two new data types: rational numbers and lllls (an acronym for Lisp-like linked lists), the latter being a list capable to contain other lllls in itself, a bit like a Lisp list. In addition to that, it includes a large collection of tools for operating upon these new types and a number of advanced facilities and graphical interfaces for musical notation, with support for microtonal accidentals of arbitrary resolution, measured and non-measured notation, polymetric notation, support for MusicXML files and much more."
+
+"bach is a completely independent project by composers Andrea Agostini and Daniele Ghisi. For this reason its main focus is on musical representation, analysis and composition. Nonetheless, the data types it provides, along with their related tools, may have a much broader area of application."
+
+"bach is distributed as freeware and is still in the alpha phase. To obtain the software, refer to the project's www page:"
+
+:link "http://www.bachproject.net/"
+:protocol :http

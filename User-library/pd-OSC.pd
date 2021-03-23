@@ -1,0 +1,34 @@
+#N canvas 310 207 947 334 10;
+#X obj 4 7 comment 0 16 Helvetica patch 0 0 0 0 a patch to test OSC
+connection between PD and PWGL (via zosc-0.3.1);
+#X obj 761 309 pddplink http://zepadovani.info;
+#X obj 415 71 comment 0 16 Helvetica patch 0 0 0 0 PD to PWGL;
+#X obj 39 71 comment 0 16 Helvetica patch 0 0 0 0 PWGL to PD;
+#X obj 40 107 dumpOSC 3000;
+#X obj 40 159 print;
+#X obj 403 261 sendOSC;
+#X msg 252 156 disconnect;
+#X msg 252 137 connect localhost 3001;
+#X obj 252 109 loadbang;
+#X floatatom 403 283 5 0 0 0 - - -;
+#X floatatom 442 283 5 0 0 0 - - -;
+#X text 477 286 bundleDepth;
+#X msg 403 112 send /bing 1 2.1 three;
+#X msg 567 158 [;
+#X msg 567 184 ];
+#X text 606 175 when last bundle is closed the buffer is sent.;
+#X text 607 196 so: first "[" \, then add messages with send /bla;
+#X text 610 214 open nested nudle etc \, close with "]";
+#X text 606 154 open / close bundles here.;
+#X text 609 235 watch the bundleDepth index change while you do this.
+;
+#X text 609 255 MAX_BUNDLE_NESTING: 32;
+#X connect 4 0 5 0;
+#X connect 6 0 10 0;
+#X connect 6 1 11 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;
+#X connect 13 0 6 0;
+#X connect 14 0 6 0;
+#X connect 15 0 6 0;

@@ -1,0 +1,42 @@
+$Id: README.MacOSX,v 1.2 2004/01/14 11:34:32 schwarz Exp $
+
+[Remark: SDIF.xcode and SDIF.pbproj are actually directories on Unix,
+but appear as files on Mac.]
+
+
+
+Building on Mac OS-X 10.3 or higher with XCODE
+==============================================
+
+The file macosxbuild/SDIF.xcode builds a framework containing the
+SDIF library and exported header files.
+
+
+
+Building on Mac OS-X with Project Builder
+=========================================
+
+The file macosxbuild/SDIF.pbproj builds a framework containing the
+SDIF library and exported header files.
+
+
+
+Building on Mac OS-X with gcc and the automake/autoconf system
+==============================================================
+
+You can also build from a terminal in the usual way (see file INSTALL).
+
+
+Support for shared libraries
+----------------------------
+
+The default behavior of the configure script is to enable 
+the use of shared librairies. While libtool
+exists for MacOSX most versions are not working properly.
+Therefore, we recommand to disable creation of shared libraries
+under  MacOSX  by means of adding the configure
+option --disable-shared to the configuration command line.
+So under MacOSX the prefered configuration command line would read
+
+> ./configure --disable-shared
+

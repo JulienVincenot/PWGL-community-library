@@ -1,0 +1,17 @@
+:subtitle "Derivations"
+:bodytext "All the functions grouped here can be applied to any kind of parameters that can be represented with numbers."
+
+
+
+:bodytext "This chapter is dedicated to the concept of arithmetical derivation. 
+
+As an extension of the arithmetical concept, this part of the library considers the derivation as a possible function to simplify a given profile."
+
+
+:bodytext "The simplification appears here in two ways. The first is given by the reduction of elements constituting the derived result from the original one.
+Secondly, the derivation is a way of removing specificities inside a curve, keeping as long as possible the global shape.
+"
+
+:bodytext "Almost all these functions are recursive (only the MIN-MAX-DERIVATION is not). In this case recursion means which level of derivation you want to get.
+
+If you put 1 you just obtain the first derivation. If you put 2, you will obtain the derivation of the first one. With 3, the derivation of the derivation of the first one, and so on."

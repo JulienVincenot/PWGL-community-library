@@ -1,0 +1,5 @@
+	-a	view ASCII chunks
+	-d	view data
+	-b	view data brief (output in SDIF selection syntax)
+	-t <sdif types file>  specify file with additional sdif types
+	-h	this help

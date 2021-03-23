@@ -1,0 +1,1 @@
+(defsystem "supervp-sdif"  (:optimize ((debug 3) (speed 3) (safety 1)))  :members   ("package"   "supervp-analysis"   "sdif-reader"    ("menus" :source-only t)   )  :rules ((:in-order-to :compile :all           (:requires (:load :previous)))));(compile-system "supervp-sdif" :load t)

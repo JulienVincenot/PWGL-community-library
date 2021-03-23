@@ -1,0 +1,41 @@
+:Title "Description"
+
+:section-start "Purpose"
+
+:bodytext "        This library uses an algorithm known as the \"String-Join\" method to extract the non-trivial, frequently occuring motifs from a set of sequences. A motif must occur twice or more in the set of input sequences to be found by the algorithm. A motif is considered trivial if it is a substring of a longer motif with the same frequency of occurence."
+
+:section-end
+
+:section-start "Boxes"
+
+:bodytext "        The main box provided by this library is the motif-extraction box. This box finds the non-trivial frequently occurring motifs in the input lists, and returns them in the form of a list of RepeatingPattern Objects. The box also allows the user to specify a minimum frequency required for a motif to be considered \"frequent\". This value must be an integer greater than or equal to two. In addition to returning all of the frequeny motifs, this box also outputs the longest non-trivial motifs found (motifs which are not substrings of any longer motif), as well as the singletons (patterns of length 1 that occur in the input lists).
+
+The patterns (motifs) in the list returned by the motif-extraction box can be filtered by the filter-results box according to pattern length and frequency.
+
+The sort-patterns box allows the user to sort the patterns returned by the motif-extraction box.
+
+The print-patterns box allows the user to and print out the patterns to the standard output stream (PWGL Output window) in a readable fashion.
+
+The convert-to-pattern-freq-pairs box converts the list of RepeatingPattern objects into a list of pattern-frequency pairs which are more accessible to the user (no need to use accesor functions to get data from the RepeatingPattern objects.)
+
+The get-singletons box allows the users to retrieve all patterns of length 1 (singletons) that occur in the set of input lists. Note that the motif-extraction box also provides this functionality as a seperate output."
+
+:section-end
+
+:section-start "Examples"
+:bodytext "        See \"motifExample.pwgl\"."
+:section-end
+
+:section-start "Release Notes"
+:bodytext "        First release."
+
+:section-end
+
+:section-start "References"
+
+:bodytext "        Detailed description of the String-join algorithm: " 
+:bodytext "        [1] J.-L. Hsu et al, \"Discovering Nontrivial Repeating Patterns in Music Data\", in IEEE transactions on Multimedia, vol. 3, no. 3, pp. 311-325, 2001."
+
+
+:section-end
+

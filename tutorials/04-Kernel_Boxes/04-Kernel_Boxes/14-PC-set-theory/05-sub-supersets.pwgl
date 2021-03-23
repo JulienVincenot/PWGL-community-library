@@ -1,0 +1,13 @@
+(IN-PACKAGE :CCL)
+;; this patch was saved with PWGL version 1.0 beta RC 17 (0.9.17-147)
+(ASSERT-PATCH-SAVED-VERSION-NOT-NEWER-THAN (QUOTE ((0 9 17) 147)))
+(LET ((WIN (MAKE-INSTANCE (QUOTE PWGL-PW-WINDOW) :PWGL-SUBVIEWS (LIST (MAKE-INSTANCE (QUOTE PWGL-BOX) :PWGL-SUBVIEWS (LIST (MAKE-INSTANCE (QUOTE PWGL-HIERARCHICAL-MENUBOX-SUBVIEW) :BOX-STRING "sc-name" :MINVAL 0 :MAXVAL 18 :MENU-LIST :SC-NAME-LIST :MENU-LIST-STRING "3-1" :CURVAL2 3 :MENU-TITLES :SC-NAME-TITLE-LIST :MAXVAL2 12) (MAKE-INSTANCE (QUOTE PWGL-NUMBOX-SUBVIEW) :BOX-STRING "card" :CURVAL 1 :MINVAL 1 :MAXVAL 12 :VALUE-STRING "1")) :X 0.6801480045312291D0 :Y 0.7758342257010218D0 :W 0.54 :H 0.1 :BOX-STRING "sub/supersets" :PWGL-OUTPUTS (LIST (MAKE-INSTANCE (QUOTE PWGL-OUTPUT))) :BOX-LAYOUT (MAKE-INSTANCE (QUOTE PWGL-BOX-LAYOUT) :GROUPING-LIST (LIST 2) :ORIG-GROUPING-LIST (LIST 2) :BORDER 0.012) :PW-FUNCTION (QUOTE SUB/SUPERSETS))) :X 5 :Y 5 :SCALEFX 0.7733611 :SCALEFY 0.7733611 :TAGS (LIST "box-tutorial/sub/supersets") :WINDOW-DOCUMENTATION "SUB/SUPERSETS   (SC-NAME CARD):
+returns all subset classes of SC (when card is less than the cardinality of SC)
+or superset classes (when card is greater than the cardinality of SC)
+of cardinality card..
+The first input is a hierarchical menu-box, where the user selects
+the SC-name. When the input is scrolled, it displays all SC-names
+of a given cardinality. The cardinality can be changed by
+dragging the mini-scroll view in the right-most part of the input.
+
+" :X -1754 :Y 22 :WIDTH 730 :HEIGHT 530))) (WINDOW-SELECT WIN) WIN)

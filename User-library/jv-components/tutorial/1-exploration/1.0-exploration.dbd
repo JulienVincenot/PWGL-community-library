@@ -1,0 +1,10 @@
+:subtitle "1.0 - Exploration"
+
+:bodytext "This part of the library is dedicated to some tools for morphological analysis. Most of them are more appropriate for lists of values (as bpfs) or symbols. A few of them deal especially with pitches or rhythm structures."
+
+:bodytext "Regarding list of values and bpfs, these patches where conceived to enlighten the structure of non-musical temporal objects, sampled with MaxMSP for instance, and turned into lists of datas. 
+That is mostly to identify discontinuities, or 'saliences', in these materials, represented as multi-dimensional spaces. In this research, this factor of saliency is generally combined with durations, structure of contrast and local directions."
+
+
+:bodytext "N.B. : These tools are largely based on concepts and tools developed as part of the library FV-Morphologie by Fred Voisin . If needed, please refer to his tutorials and website for further details :
+http://fredvoisin.com/web/spip.php?rubrique56"

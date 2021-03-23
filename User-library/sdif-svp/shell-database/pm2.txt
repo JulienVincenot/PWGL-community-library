@@ -1,0 +1,69 @@
+-A<Action>                       smo:  F0 Smooth
+f0:   F0 Analysis
+par:  Partial Follow
+seqs: Chord Seq (average spectrum)
+seqp: Chord Seq (average partials)
+pic:  Extract Peaks
+syn:  Synthesis
+fad:  Fade Harmonics
+-S<Input Filename>               (either sound file or partial parameters in sdif format)
+-P<Fundamental  Filename>        (.f0 or .sdif)
+-k<Peaks Output Filename>        (SDIF)
+-K<Peaks Input  Filename>        (SDIF)
+-F<InData File Format>           (a:ASCII, b:Binary, S:SDIF,(default: S))
+-O<Output File Format>           (a:ASCII, b:Binary, S:SDIF  (default: S))
+-Os<Sound File Format>           (a[8|16|24|32|float|double]:AIFF, w[8|16|24|32|float|double]:WAV, i[16|float]:ircam, r[8|16|24|32|float|double]:RAW (default: aiff 16bit) )
+-q<Number Of Partials>           (all by default)
+-M<Window Analysis Size>         (1024 samples)
+-N<Window FFT Size>              (1024 samples)
+-I<Window Analysis Step>         (256 samples)
+-W<Window Type>                  (hanning (default), rectangle, triangle, hanning2, hamming, blackman, gauss7, gauss8, gauss9)
+-m<maximum amplitude att>         (default: Inf dB compared to normalized maximum)
+                                  (f0 analysis: 0.003162 dB)
+-p<Use Phase>                     (default: 0 for synthesis/1 for analysis)
+-R<Sampling Rate>                 (44100 Hz)
+-B<Begin>                         (time)
+-E<End>                           (time)
+-C<num> (first channel == 1)      (1)
+-c<Bandwidth Partial Seeve>       (0.5, coeff 0<c<1)
+-a<Smoothing Envelope Attack>     (0.005 sec)
+-r<Smoothing Envelope Release>    (0.005 sec)
+-Ct<time gap to connect over>     (0 sec)
+-Cf<rel. freq gap to connect over>[c]  (0, Cf> 0) 
+                   given as factor or in cents with c suffix attached)
+--devFR=<rel. freq dev>[c]   (2e+01 cents),
+                   given as factor or in cents with c suffix attached)
+--devFC=<const freq dev partial>  (50 Hz)
+--devA=<rel. ampl dev in partial> (0.5)
+--devM=<source partial neighbors> (1)
+--devK=<traget partial neighbors> (3)
+-L<minimum partial length>        (0 sec)
+-l<required partial dur in chord> (1 0<l<=1)
+-j<F0 smoothing order>            (5 frames)
+--f0min=<min F0 in Hz>            (50 Hz)
+--f0max=<max F0 in Hz>            (1000 Hz)
+--f0ana=<max analysis freq>       (3000 Hz)
+--f0=<number of f0 to output>     (1 )
+--f0score                         (false)
+--f0sub                           (2 > 2)
+--f0use=<weiEnv,weiMatch>         (0.140000,0.260000)
+      if f0use is given the model scoring f0 algorithm will
+      be used with the default score factors for spectral match,
+      spectral envelope smoothness and spectral centroid.
+      If weighting parameters are given then the first wil adjust
+      the spectral envelope weighting the second the spectral
+      match weighting, and the spectral centroid weighting will
+      be set to 1-weiEnv-weiMatch.
+--mixto=<insndfile>               (nothing)
+--mixfac=<factor>                 (mixing ->-1, synth -> 1)
+--chords=<ch1start,ch1end/...>  or 
+--chords=<filename containing start and end time one pair per line>   (empty)
+--mode=<analysis mode mask>       (1) 
+      select analysis mode: 
+           set bit 0 for improved non stationary peak parameter analysis
+           set bit 1 for use of  partial slope during peak connection
+-v                                verbose
+-V                                print version
+-h                                this help
+
+

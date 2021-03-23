@@ -1,0 +1,13 @@
+
+((:VARIABLE-KEY
+  :SUPERVP-COMMAND
+  :PACKAGE
+  "SA"
+  :VALUE
+  "/Applications/Apps Jul/AudioSculpt 2.9.4v3/AudioSculpt.app/Contents/MacOS/supervp")
+ (:VARIABLE-KEY
+  :PM2-COMMAND
+  :PACKAGE
+  "SA"
+  :VALUE
+  "/Applications/Apps Jul/AudioSculpt 2.9.4v3/AudioSculpt.app/Contents/MacOS/pm2"))

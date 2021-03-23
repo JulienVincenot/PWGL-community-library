@@ -1,0 +1,47 @@
+Despite its name, omchreode can be loaded into OM as well as PWGL.
+
+Installation in PWGL
+--------------------
+omchreode depends on ompw, which is already included with
+PWGL. Because of that, I recommend getting the latest version of PWGL
+at http://www2.siba.fi/PWGL/downloads.html.
+
+Then download omchreode from
+http://github.com/kisp/omchreode/tarball/master which always points to
+the latest version. Uncompress and rename the directory to omchreode
+if you like.
+
+A good location to place it is in $HOME/PWGL-User/User-library.
+
+Installation in OM
+--------------------
+omchreode depends on ompw, which also needs to be installed. Download
+it from http://github.com/kisp/ompw/tarball/master which always points
+to the latest version. Uncompress and *rename* the directory to ompw.
+
+Then download omchreode from
+http://github.com/kisp/omchreode/tarball/master which always points to
+the latest version. Uncompress and *rename* the directory to
+omchreode.
+
+A good location to place the two libraries is in
+/Applications/OM-6.2.2-SRC/libraries (depending on your OM version).
+
+--------------------------------------------------------------------------------
+
+This file is part of omchreode.
+
+Copyright (c) 2010 - 2011, Kilian Sprotte. All rights reserved.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.

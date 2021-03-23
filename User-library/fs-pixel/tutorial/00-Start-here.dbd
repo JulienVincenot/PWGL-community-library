@@ -1,0 +1,19 @@
+:subtitle "fs-PIXEL by Filippo Saya (2011)"
+
+:bodytext "This documentation has been written by Filippo Saya"
+
+:bodytext "Introduzione da sviluppare"
+:items
+- "Capitolo 1"
+- "Capitolo 2"
+- "Capitolo 3"
+- "Caputolo Utilities"
+
+:bodytext "Descrizione sintetica del tuo intento "
+
+
+
+
+:bodytext" Please, if you find some bugs or anomalies, write directly to me at:"
+:link "filfil@fastwebnet.it"
+

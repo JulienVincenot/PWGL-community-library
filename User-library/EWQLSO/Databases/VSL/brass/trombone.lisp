@@ -1,0 +1,27 @@
+
+(IN-PACKAGE :CCL)
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::TROMBONE)
+   (TYPE T)
+   (SYSTEM::EXPRESSION STACCATO))
+  #P"28 Tenor trombone/nki/TP_stac_basic.nki")
+
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::TROMBONE)
+   (TYPE T)
+   (SYSTEM::EXPRESSION TREMOLO))
+  #P"28 Tenor trombone/nki/TP_flatter.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::TROMBONE) (TYPE T) (SYSTEM::EXPRESSION SFZ))
+  #P"28 Tenor trombone/nki/TP_oV_sfz_basic.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::TROMBONE)
+   (TYPE T)
+   (SYSTEM::EXPRESSION SYSTEM::EXPRESSION))
+  (COND ((CL-PPCRE:SCAN "flutter*"
+                        (SYSTEM::PRINT-SYMBOL SYSTEM::EXPRESSION))
+         #P"28 Tenor trombone/nki/TP_flatter.nki")))

@@ -1,0 +1,40 @@
+
+(IN-PACKAGE :CCL)
+
+(DEFMETHOD NKI
+  ((SELF VIOLONCELLO) (TYPE T) (EXPRESSION TRILLO))
+  (CASE (AUXILIARY-SYMBOL EXPRESSION)
+    (:SHARP #P"Strings/10 Cellos/3 Effects/F VCS Trill W.nki")
+    (T #P"Strings/10 Cellos/3 Effects/F VCS Trill H.nki")))
+
+(DEFMETHOD NKI
+  ((SELF VIOLONCELLO) (TYPE T) (EXPRESSION TREMOLO))
+  #P"Strings/10 Cellos/1 Long/F VCS Trem.nki")
+
+(DEFMETHOD NKI
+  ((SELF VIOLONCELLO) (TYPE T) (EXPRESSION ACCENT))
+  #P"Strings/10 Cellos/2 Short/F VCS Marc RR.nki")
+
+(DEFMETHOD NKI
+  ((SELF VIOLONCELLO) (TYPE T) (EXPRESSION PIZZICATO))
+  #P"Strings/10 Cellos/2 Short/F VCS Pizz.nki")
+
+(DEFMETHOD NKI
+  ((SELF VIOLONCELLO) (TYPE T) (EXPRESSION COL-LEGNO))
+  #P"Strings/10 Cellos/2 Short/F VCS Col Legno.nki")
+
+(DEFMETHOD NKI
+  ((SELF VIOLONCELLO) (TYPE T) (EXPRESSION SPICCATO))
+  #P"Strings/10 Cellos/2 Short/F VCS Spiccato RR.nki")
+
+(DEFMETHOD NKI
+  ((SELF VIOLONCELLO) (TYPE T) (EXPRESSION SLUR))
+  #P"Strings/10 Cellos/1 Long/F VCS QLeg.nki")
+
+(DEFMETHOD NKI
+  ((SELF VIOLONCELLO) (TYPE T) (EXPRESSION SLUR))
+  #P"Strings/10 Cellos/1 Long/F VCS Butter Legato.nki")
+
+(DEFMETHOD NKI
+  ((SELF VIOLONCELLO) (TYPE T) (EXPRESSION SLUR))
+  #P"Strings/10 Cellos/1 Long/F VCS QLeg.nki")

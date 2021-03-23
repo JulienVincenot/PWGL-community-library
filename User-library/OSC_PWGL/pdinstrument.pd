@@ -1,0 +1,18 @@
+#N canvas 8 22 667 525 10;
+#X obj 17 17 dumpOSC 57120;
+#X obj 482 62 vsl 32 128 0.01 1 1 0 empty empty empty 0 -9 0 10 -261234
+-1 -1 0 1;
+#X msg 17 87 \; contour \$1;
+#X obj 482 33 r contour;
+#X obj 572 62 vsl 32 128 0.01 1 1 0 empty empty empty 0 -9 0 10 -220107
+-1 -1 0 1;
+#X msg 79 147 \; env \$1;
+#X obj 572 33 r env;
+#X floatatom 572 209 5 0 0 0 - - -;
+#X obj 17 54 OSCroute /contour /env;
+#X connect 0 0 8 0;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 6 0 4 0;
+#X connect 8 0 2 0;
+#X connect 8 1 5 0;

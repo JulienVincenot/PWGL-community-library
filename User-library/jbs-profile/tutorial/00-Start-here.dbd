@@ -1,0 +1,21 @@
+:subtitle "JBS-Profile by Jacopo Baboni Schilingi (2009)"
+
+:bodytext "This documentation has been written by Jacopo Baboni Schilingi and Julien Vincenot."
+
+:bodytext "This is a library dedicated to control any kind of parameters you can represent into a bpf curve inside PWGL software."
+:items
+- "Perturbations"
+- "Reflexions"
+- "Derivations"
+- "Integrations"
+- "Interpolations"
+- "Utilities"
+:bodytext "This library is the result of many years of work with Mikael Laurson, Nicola Evangelisti and Mikael Malt. It is based on Hyper-systemic theory I developed since 1987 till today. For those who might be interested, please refer to 'La musique Hyper-Systemique', Edition Mix. Paris 2007, by Jacopo Baboni Schilingi. For those who are familiar with the old PROFILE version, you must know that functions concerning pitches are still available. Nevertheless it is important to mention that this research started in 1994. In that period, I did not know Mikael Laurson's constraint system, that is why I created a sort of harmonic control for pitches. Nowadays it is totally ridiculous comparing to all the rules I've developed for Multi-PMC and Multi-Score-PMC.
+So for those who might be interested in pitch control for melodic profiles, please see the tutorial of the JBS-Constraints library inside PWGL. Particularly look at the patch numbers: 1.03, 1.04 and also 2.01 and 2.02."
+
+:bodytext "To avoid any misunderstanding I called this library JBS-Profile to make a difference with the older one. Those who are familiar with PROFILE, will find in the JBS-Profile for PWGL all the ancient functions (sometimes with much more comprehensible names...) but also many new functions coming from my own personal libraries. "
+
+:bodytext "In future, you can freely download the always last upgraded version on my website www.baboni-schilingi.com
+Please, if you find some bugs or anomalies, write directly to me at jbs@baboni-schilingi.com."
+
+:subtitle "ATTENTION : IN ORDER TO BE ABLE TO SEE ALL THE EXAMPLES, PLEASE LOAD ALSO THE KSQUANT LIBRARY BY KILIAN SPROTTE."

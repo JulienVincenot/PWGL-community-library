@@ -1,0 +1,1 @@
+(in-package :asdf)(defsystem :viuhka  :name "Viuhka Lib"  :description "Viuhka Lib"  :long-description "Viuhka Lib"  :version "0.7"  :author "Mikael Laurson"  :serial t  :components   ((:file "corrections")   (:file "user-ornament-macro")   (:file "viuhka-menus")))

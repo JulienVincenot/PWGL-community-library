@@ -1,0 +1,10 @@
+:title-page
+:elements
+	#.(let ((lib (ccl::find-pwgl-library :zosc)))  ;;:sdif
+            (list :title (ccl::pwgl-library-name lib)
+                  :version (ccl::pwgl-library-version lib)
+                  :authors "josé henrique padovani"
+:link "http://archive.cnmat.berkeley.edu/SDIF/alpha/SDIF-Files.tar.gz"
+:protocol :http
+                  )
+)

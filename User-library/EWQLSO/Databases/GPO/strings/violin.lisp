@@ -1,0 +1,8 @@
+
+(IN-PACKAGE :CCL)
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::VIOLIN)
+   (TYPE T)
+   (SYSTEM::EXPRESSION PIZZICATO))
+  #P"7. Solo Strings/2. Viola/Viola Pizz Solo.nki")

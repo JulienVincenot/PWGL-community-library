@@ -1,0 +1,14 @@
+Name:                ksquant2
+Version:             0.1.10
+Description:         Haskell implementation of simple2score from ksquant.
+License:             GPL
+License-file:        COPYING
+Author:              Kilian Sprotte
+Maintainer:          kilian.sprotte@gmail.com
+Build-Type:          Simple
+Cabal-Version:       >=1.2
+
+Executable ksquant2
+  Main-is:           Main.hs
+  Build-Depends:     base, filepath, directory, process, parsec
+  Extensions: MultiParamTypeClasses, FunctionalDependencies, FlexibleInstances, TypeSynonymInstances, FlexibleContexts

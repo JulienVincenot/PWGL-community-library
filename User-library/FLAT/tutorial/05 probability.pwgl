@@ -1,0 +1,34 @@
+(IN-PACKAGE :CCL)
+;; this patch was saved with PWGL version 1.0 beta rc-9 (0.9.9-500)
+(ASSERT-PATCH-SAVED-VERSION-NOT-NEWER-THAN (QUOTE ((0 9 9) 500)))
+(LET ((WIN (MAKE-INSTANCE (QUOTE PWGL-PW-WINDOW) :PWGL-SUBVIEWS (LIST (MAKE-INSTANCE (QUOTE PWGL-TEXT-BOX) :PWGL-SUBVIEWS (LIST (MAKE-INSTANCE (QUOTE PWGL-TEXT-SUBVIEW) :BOX-STRING "text" :APPLICATION-WINDOW (MAKE-INSTANCE (QUOTE PWGL-FRED-WINDOW) :TITLE "Text-Editor" :X 100 :Y 100 :WIDTH 500 :HEIGHT 600) :VALUE-STRING "w h e r e - t h e - w i l d - t h i n g s - a r e -
+
+t h e - n i g h t - m a x - w o r e - h i s - w o l f - s u i t - a n d - m a d e - m i s c h i e f - o f - o n e - k i n d - a n d - a n o t h e r -
+
+h i s - m o t h e r - c a l l e d - h i m - w i l d - t h i n g ! - a n d - m a x - s a i d - i - w i l l - e a t - y o u - u p ! - s o - h e - w a s - s e n t - t o - b e d - w i t h o u t - e a t i n g - a n y t h i n g - 
+
+t h a t - v e r y - n i g h t - i n - m a x  - r o o m - a f o r e s t - g r e w - a n d - g r e w - 
+
+a n d - g r e w - u n t i l - h i s - c e i l i n g - h u n g - w i t h - v i n e s - a n d - t h e - w a l l s - b e c a m e - t h e - w o r l d - a l l - a r o u n d -
+
+a n d - a n - o c e a n - t u m b l e d - b y - w i t h - a - p r i v a t e - b o a t - f o r - m a x - a n d - h e - s a i l e d - o f f - t h r o u g h - n i g h t - a n d - d a y -
+
+a n d - i n - a n d - o u t - o f - w e e k s - a n d - a l m o s t - o v e r - a - y e a r - t o - w h e r e - t h e - w i l d - t h i n g s - a r e -
+
+a n d - w h e n - h e - c a m e - t o - t h e - p l a c e - w h e r e - t h e - w i l d - t h i n g s - a r e t h e y - r o a r e d - t h e i r - t e r r i b l e - r o a r s - a n d - g n a s h e d - t h e i r - t e r r i b l e - t e e t h - a n d - r o l l e d - t h e i r - t e r r i b l e - e y e s - a n d - s h o w e d - t h e i r - t e r r i b l e - c l a w s -
+
+t i l l - m a x - s a i d - b e s t i l l ! - a n d - t a m e d - t h e m - w i t h - t h e - m a g i c - t r i c k - o f - s t a r i n g - i n t o - a l l - t h e i r - y e l l o w - e y e s - w i t h o u t - b l i n k i n g - o n c e - a n d - t h e y - w e r e - f r i g h t e n e d - a n d - c a l l e d - h i m - t h e - m o s t w i l d - t h i n g - o f - a l l -
+
+
+
+")) :X 0.11999999999999966D0 :Y 1.6559999999999997D0 :W 2.616000011920929D0 :H 0.5040000014901165D0 :BOX-STRING "text-box" :PWGL-OUTPUTS (LIST (MAKE-INSTANCE (QUOTE PWGL-OUTPUT))) :BOX-LAYOUT (MAKE-INSTANCE (QUOTE PWGL-BOX-LAYOUT) :GROUPING-LIST (LIST 1) :ORIG-GROUPING-LIST (LIST 1) :X-PROPORTIONS (LIST (LIST 1)) :BORDER 0.012) :PW-FUNCTION (QUOTE TEXT-BOX) :OPEN-STATE-W 2.616000011920929D0 :OPEN-STATE-H 0.5040000014901165D0) (MAKE-INSTANCE (QUOTE PWGL-BOX) :PWGL-SUBVIEWS (LIST (MAKE-INSTANCE (QUOTE PWGL-VALUE-BOX-SUBVIEW) :BOX-STRING "sequence" :CURVAL NIL :VALUE-STRING "nil" :CONNECTION NIL) (MAKE-INSTANCE (QUOTE PWGL-MENUBOX-SUBVIEW) :BOX-STRING "mode?" :MINVAL 0 :MAXVAL 1 :MENU-LIST (LIST ":raw" ":normalized") :MENU-LIST-STRING ":raw")) :X 1.2359999999999998D0 :Y 0.9880000000000009D0 :W 0.52 :H 0.1 :BOX-STRING "probability-analysis" :PWGL-OUTPUTS (LIST (MAKE-INSTANCE (QUOTE PWGL-OUTPUT))) :BOX-LAYOUT (MAKE-INSTANCE (QUOTE PWGL-BOX-LAYOUT) :GROUPING-LIST (LIST 2) :ORIG-GROUPING-LIST (LIST 2) :X-PROPORTIONS (LIST (LIST 0.3 0.7)) :BORDER 0.012) :PW-FUNCTION (QUOTE STUDIOFLAT::PROBABILITY-ANALYSIS)) (MAKE-INSTANCE (QUOTE PWGL-BOX) :PWGL-SUBVIEWS (LIST (MAKE-INSTANCE (QUOTE PWGL-VALUE-BOX-SUBVIEW) :BOX-STRING "probability-table" :CURVAL NIL :VALUE-STRING "nil" :CONNECTION NIL) (MAKE-INSTANCE (QUOTE PWGL-VALUE-BOX-SUBVIEW) :BOX-STRING "nr-of-items" :CURVAL 20 :VALUE-STRING "20")) :X 1.2359999999999998D0 :Y 0.7240000000000006D0 :W 0.52 :H 0.1 :BOX-STRING "probability-seq" :PWGL-OUTPUTS (LIST (MAKE-INSTANCE (QUOTE PWGL-OUTPUT))) :BOX-LAYOUT (MAKE-INSTANCE (QUOTE PWGL-BOX-LAYOUT) :GROUPING-LIST (LIST 2) :ORIG-GROUPING-LIST (LIST 2) :X-PROPORTIONS (LIST (LIST 0.3 0.7)) :BORDER 0.012) :PW-FUNCTION (QUOTE STUDIOFLAT::PROBABILITY-SEQ))) :X 5 :Y 5 :CONNECTIONS (LIST (MAKE-INSTANCE (QUOTE PWGL-CONNECTION) :PWBOX1 1 :OUT-BOX 0 :PWBOX2 2 :INPUT-BOX 0 :DRAW-MODE :BEZIER :BEZIER-SELECTOR1 (MAKE-INSTANCE (QUOTE PWGL-BEZIER-SELECTOR) :POINT-NUM 1) :BEZIER-SELECTOR2 (MAKE-INSTANCE (QUOTE PWGL-BEZIER-SELECTOR) :POINT-NUM 2) :CX1 1.5199999889731402D0 :CY1 0.8179999977946282D0 :CX2 1.123999998509884D0 :CY2 0.7952000013142833D0) (MAKE-INSTANCE (QUOTE PWGL-CONNECTION) :PWBOX1 0 :OUT-BOX 0 :PWBOX2 1 :INPUT-BOX 0 :DRAW-MODE :BEZIER :BEZIER-SELECTOR1 (MAKE-INSTANCE (QUOTE PWGL-BEZIER-SELECTOR) :POINT-NUM 1) :BEZIER-SELECTOR2 (MAKE-INSTANCE (QUOTE PWGL-BEZIER-SELECTOR) :POINT-NUM 2) :CX1 1.328000004470348D0 :CY1 1.0339999977946275D0 :CX2 1.107999998509884D0 :CY2 1.0952000013142827D0)) :WINDOW-DOCUMENTATION "Analysis and/or generates sequences based on probabilities.
+
+A sequence can be a sequence of numerical values (for example MIDI note numbers) or symbols (for example letters) with some exemptions (like , and .).
+
+Probability-analysis creates a table with probabilities for values to exist in the sequence. The output can either be raw (i.e. showing the raw count for each found value) or normlized (i.e. showing the probability in % for each value).
+
+Probability-seq uses the generated probability table and creates a sequence from it.
+
+The patch shows the effect of generating a a sequence of letters based on their probabilities to exist in a short English text. The result can be evaluated from how close it is to English language.
+
+See further; Markov Process." :TITLE "05 probabilities" :X 525 :Y 207 :WIDTH 730 :HEIGHT 530))) (WINDOW-SELECT WIN) WIN)

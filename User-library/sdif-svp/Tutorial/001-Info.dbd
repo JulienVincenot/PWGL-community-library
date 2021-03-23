@@ -1,0 +1,13 @@
+:title "Info"
+:table2 :columns (0.2 0.8)
+:table-elements
+#.(let ((lib (find-pwgl-library "sdif-svp")))
+        (list "" "" 
+"Author" (pwgl-library-author lib)
+		"Maintainer" (pwgl-library-maintainer lib)
+
+              "Version" (pwgl-library-version lib)
+			"Licence" (pwgl-library-licence lib)
+"Description" (pwgl-library-description lib)
+"Long description" (pwgl-library-long-description lib)
+              "copyright" (pwgl-library-author lib)))

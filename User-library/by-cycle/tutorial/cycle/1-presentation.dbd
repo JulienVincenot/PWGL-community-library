@@ -1,0 +1,50 @@
+:title "CYCLE GENERATOR"
+
+:subtitle "Algorithmes"
+
+:section-start "Kaprekar"
+:bodytext "L'algorithme de Kaprekar consiste à associer à un nombre quelconque x un autre nombre K(x) généré de la façon suivante :"
+:items
+:list-style :french
+- "On considère les chiffres de x, écrits en base n. On forme le nombre x1 en arrangeant ces chiffres dans l'ordre croissant et le nombre x2 en les arrangeant dans l'ordre décroissant."
+- "On pose K(x) = x2 - x1."
+:bodytext "On itère ensuite le processus jusqu'à obtenir une redondance cyclique."
+:section-end
+
+:section-start "Cribles Rythmiques"
+:bodytext "Forme de métabole selon Iannis Xenakis, les cribles rythmiques reposent sur la construction d'une matrice afin de générer deux cycles; l'un par décalage horizontal (i), l'autre vertical (j)."
+:figure "img2.png"
+:caption "Cet exemple illustre le processus de permutation par un décalage vertical du crible dans la matrice." 
+:section-end
+
+:section-start "Commentaires Cycliques"
+:bodytext "Issue de suites autoréférentes décrites par l'allemand M. Hilgemeir, puis développer par John Conway notamment pour les suites de commentaires numériques infinis, les commentaires cycliques consistent à dénombrer les éléments d'une graine qui seront triés de façon croissante à chaque itération jusqu'à l'effectivité d'un cycle."
+:section-end
+
+:section-start "Permutations Cycliques"
+:section-start "Aperçu mathématiques"
+:link "http://math.univ-lyon1.fr/capes/IMG/pdf/cycles.pdf"
+:section-end
+:section-start "Application musicale"
+:link "http://www.entretemps.asso.fr/Nicolas/TextesNic/Barraque.html"
+:section-end
+:section-end
+
+:section-start "Permutations Symétriques"
+:bodytext "Mise en évidence par Olivier Messiaen, les permutations symétriques constituent un système de durées numérotées qui consiste à changer l'ordre de ses durées afin d'obtenir un nombre limité de cellules rythmiques."
+:figure "img1.png"
+:caption "L'ordre des durées (sur fond gris) permute suivant la procédure d'une liste donnée (sur fond blanc) qui est ré-ordonnée à chaque étape."
+:section-end
+
+:section-start "Permutations Circulaires"
+:bodytext "Cet algorithme consiste à permuter une liste élément par élément dont la pertinence dans le cadre de cette librairie est d'effectuer une permutation d'une base donnée à une autre."
+:section-end
+
+:bodytext "
+"
+:important "Si il existe d'autres algorithmes répondant à la thématique de la présente librairie, je vous serez gré de m'en informer afin de les y intégrer. Toutes suggestions et remarques sont également bienvenues."
+
+:link "mailto:by.cmsc@gmail.com"
+
+:bodytext "
+"

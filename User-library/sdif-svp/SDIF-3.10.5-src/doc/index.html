@@ -1,0 +1,193 @@
+<html>
+
+<!-- $Id: index.html,v 3.11 2004/08/27 10:28:43 schwarz Exp $
+
+crée le 24/12/1997, Dominique Virolle
+
+$Log: index.html,v $
+Revision 3.11  2004/08/27 10:28:43  schwarz
+3.8.6
+freesoftware + wiki
+
+Revision 3.10  2004/02/02 19:09:54  schwarz
+update version
+explain SDIF
+
+Revision 3.9  2003/05/23 17:45:11  schwarz
+3.7.4
+
+Revision 3.8  2002/09/20 15:15:42  schwarz
+current version and release date
+mailinglist web
+standard removed (Xavier two years ago)
+
+Revision 3.7  2001/03/01 13:24:36  schwarz
+Added mailing list instructions.
+
+Revision 3.6  2000/09/27 10:16:13  schwarz
+More todos.
+Enhanced download info.
+
+# Revision 3.5  2000/08/27  15:18:48  schwarz
+# Clearer download info.
+# Tutorial goodies.
+#
+# Revision 3.4  2000/08/22  16:33:43  schwarz
+# Better structure in index.
+#
+# Revision 3.3  2000/08/07  15:12:05  schwarz
+# Cocoon is installed for groups now, more docs.
+#
+# Revision 3.2  1999/10/07  15:22:11  schwarz
+# Added trademark notice in index.
+#
+# Revision 3.1  1999/03/14  10:54:54  virolle
+# SdifStdErr add
+#
+# Revision 2.1  1999/01/21  16:36:30  schwarz
+# Beefed up the SDIF library user manual.  It now has the sections
+# User Manual		(as before, but with navigating toc frame and
+# 			 crosslinked to the function reference)
+# Function Reference	(automatic cocoon doc with navigating toc)
+# Tutorial		(coming soon, a quick introduction to get started)
+# Utilities		(description of the utility programs coming with
+# 			 the library)
+# 
+
+14/01/1998, Dominique Virolle, ajout des options sans frames 
+
+-->
+
+<head>
+   <title>SDIF Sound Description Interchange Format (IRCAM, Analyse/Synthèse)</title>
+</head>
+
+
+<body BGCOLOR="white">
+
+
+<p>
+<a href=http://www.ircam.fr><img src="pics/logo.gif" alt="IRCAM - Centre Georges Pompidou" height=22 witdh=276 align=lefttop border=0></a>
+</p>
+<p><hr width="100%"></p>
+
+<h1>SDIF<sup><font size=-1><a href=#trademark>TM</a></font></sup><br>
+Sound Description Interchange Format</h1>
+
+<em>
+<p>Copyright (C) 1997-2001 <a href=http://www.ircam.fr/departements/recherche/ana-syn.html>Analyse/Synthèse</a><br>
+<!--#echo var="LAST_MODIFIED"-->
+</p>
+</em>
+
+<au> Dominique Virolle, 
+     <a href=mailto:schwarz@ircam.fr>Diemo Schwarz</a>, 
+     <a href=mailto:rod@ircam.fr>Xavier Rodet</a>
+</au>
+
+<p><hr width="100%"></p>
+
+This page's URL: <a href=http://www.ircam.fr/sdif>http://www.ircam.fr/sdif</a>
+<p>
+
+The <i>Sound Description Interchange Format</i> (SDIF) is an
+established standard for the well-defined and extensible interchange
+of a variety of sound descriptions including spectral, sinusoidal, time-domain,
+and higher-level models.  SDIF consists of a basic data format
+framework and an extensible <a href="standard/types-main.html">set of
+standard sound descriptions</a>.
+
+The SDIF standard has been created in collaboration by Ircam, CNMAT,
+and IUA-UPF.
+
+
+
+<p><br><br><h3>Contents</h3>
+<ul>
+  <li>Standard Documents
+  <ul>
+<!--    <li><a href="indexNorm.html">SDIF Specification</a></li>  -->
+    <li>SDIF Specification <i> (temporarily removed) </i> </li>
+    <li><a href="standard/types-main.html">Standard SDIF Description Types</a></li>
+  </ul>
+
+  <li>User Documentation
+  <ul>
+    <li><a href="extern/utilities-main.html">IRCAM SDIF Tools and Utilities</a>
+    <li><a href="extern/default-main.html">User Manual and API of the IRCAM SDIF library</a></li>
+    <li><a href="extern/tutorial-main.html">SDIF Library Tutorial</a>
+  </ul>
+
+  <li>Developer Documentation
+  <ul>
+    <li><a href="intern/default-main.html">Internal documentation of the IRCAM SDIF library</a></li>
+  </ul>
+
+
+  <li>Interactive Documentation and FAQ
+  <ul>
+    <li>The <a href="http://freesoftware.ircam.fr/wiki/index.php?pagename=HomePage">freesoftware@ircam wiki</a> contains user-driven documentation about SDIF and other <a href=http://freesoftware.ircam.fr/>Ircam Free Software</a></li>
+  </ul>
+
+<!-- UPDATE CURRENT SDIF VERSION HERE: --------------------------------------->
+  <li>Download (current version:  3.8.6 released 26.8.2004)
+<!---------------------------------------------------------------------------->
+  <ul>
+    <li><a href="download.html">IRCAM SDIF library</a></li>
+    <li><a href="download.html#matlab">SDIF for Matlab</a></li>
+    <li><a href="http://www.ircam.fr/anasyn/sdif/download">Express route to the <strong>Download Directory</strong></a></li>
+  </ul>
+</ul>
+</p>
+
+
+
+<p><br><br><h3>Mailing List</h3> 
+The SDIF mailing list allows discussions and provides information about new
+releases.  
+<ul>
+<li>Use the <a href="http://listes.ircam.fr/wws/info/sdif">sympa web interface</a>, or:<p>
+<li>To subscribe, send a mail to 
+	<a href=mailto:listserv@ircam.fr>listserv@ircam.fr</a> containing
+	<pre>subscribe sdif &lt;first name&gt; &lt;last name&gt;</pre>
+<li>To unsubscribe, send a mail to 
+	<a href=mailto:listserv@ircam.fr>listserv@ircam.fr</a> containing
+	<pre>signoff sdif [e-mail address if different from your reply-address]</pre>
+
+<li>Send messages to go to the list to 
+	<a href=mailto:sdif@ircam.fr>sdif@ircam.fr</a>.
+</ul>
+
+
+<p><br><br><h3>Links</h3>
+<ul>
+  <li><A HREF="http://www.ircam.fr/anasyn/schwarz/publications/icmc2000">ICMC 2000 article</A> by Diemo Schwarz and Matt Wright describing recent SDIF extensions and applications. 
+  <li><a href="http://cnmat.CNMAT.Berkeley.EDU/SDIF/">CNMAT SDIF Page</a></li>
+  <li><a href="http://cnmat.CNMAT.Berkeley.EDU/SDIF/FrameTypes.html">CNMAT specification of standard frame and matrix types</a>
+</ul>
+</p>
+
+
+<p><br><br><h3>Without Frames (HTML that is, not SDIF frames =-)</h3>
+<ul>
+<!--  <li><a href="SdifNormDoc.html">SDIF Specification</a></li> -->
+  <li>SDIF Specification <i> (temporarily removed) </i> </li>
+  <li><a href="extern/utilities-doc.html">IRCAM SDIF Tools and Utilities</a></li>
+  <li><a href="extern/by-subject-doc.html">User Manual of the IRCAM SDIF library</a></li>
+  <li><a href="extern/cocoon/SDIF.html">API of the IRCAM SDIF library</a></li>
+  <li><a href="intern/cocoon/SDIF.html">Internal documentation of the IRCAM SDIF library</a></li>
+<!--
+  <li><a href="SdifProgDoc.html">Documentation Programmeur de la librairie IRCAM SDIF</a></li>
+  <li><a href="SdifManuelDoc.html">Manuel d'utilisation de la librairie IRCAM SDIF</a></li>
+-->
+</ul>
+</p>
+
+<p><br><br><hr><a name=trademark>
+
+SDIF is a registered trademark, registered September 23, 1999 at INPI
+(Institut National de la Proprieté Industrielle), Paris, France for <a
+href=http://www.ircam.fr>IRCAM - Centre Georges Pompidou</a>, registration number 99/814815.
+
+</body>
+</html>

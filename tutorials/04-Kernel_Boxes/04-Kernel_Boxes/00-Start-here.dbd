@@ -1,0 +1,22 @@
+:subtitle "KERNEL TUTORIAL by Jacopo Baboni Schilingi (2011)"
+:subtitle "A good start..."
+
+:bodytext "These documentation has been written by Jacopo Baboni Schilingi with the help of Julien Vincenot, William Goutfreind and Carlo Ciceri"
+
+:bodytext "The English text has been written by Jacopo Baboni Schilingi with the supervision of Stephen Davismoon and Anna Huang"
+
+:bodytext "In order to get a tutorial, select a box of the kernel. Type 't' and the tutorial will appear. 
+BE CAREFUL: if the tutorial is open, you can not type 't' again. You have to close the PWGL help, select the chosen box and type 't' again."
+
+:bodytext "These tutorials have to be meant as a linked documentation inside PWGL. You should use these tutorials each time you need to know what a box is useful for. 
+Sometimes there are some movies to describe how a given box works. This because some boxes are just too complex to be described by a text or a patch."
+
+:bodytext "In future, you can freely download the always last upgraded version on my website:"
+:link "http://www.baboni-schilingi.com/index.php?/recherches/software/"
+:bodytext "Please, if you find some bugs or anomalies, write directly to me at jbs@baboni-schilingi.com"
+
+:bodytext "I would also like to thanks Mika Kuuskankare for all the efforts to try to understand me..."
+
+:figure "00e-Titolo.jpg"
+
+

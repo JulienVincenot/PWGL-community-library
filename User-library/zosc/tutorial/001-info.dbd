@@ -1,0 +1,13 @@
+:title "Info"
+:table2 :columns (0.2 0.8)
+:table-elements
+#.(let ((lib (ccl::find-pwgl-library "zosc")))
+        (list "" "" 
+"Author" (ccl::pwgl-library-author lib)
+		"Maintainer" (ccl::pwgl-library-maintainer lib)
+
+              "Version" (ccl::pwgl-library-version lib)
+			"Licence" (ccl::pwgl-library-licence lib)
+"Description" (ccl::pwgl-library-description lib)
+
+              ))

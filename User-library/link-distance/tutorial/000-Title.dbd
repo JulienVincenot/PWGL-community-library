@@ -1,0 +1,9 @@
+:title-page
+:elements
+        #.(let ((lib (ccl::find-pwgl-library "link-distance")))
+            (list :title (ccl::pwgl-library-name lib)
+                  :subtitle (ccl::pwgl-library-description lib)
+                  :version (ccl::pwgl-library-version lib)
+                  :authors (ccl::pwgl-library-author lib)
+                  :logo (probe-file (ccl::pwgl-location (ccl::pwgl-library-name lib) "logo.png"))
+                  :copyright (ccl::pwgl-library-author lib)))

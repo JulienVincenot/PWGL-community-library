@@ -1,0 +1,6 @@
+
+(IN-PACKAGE :CCL)
+
+(DEFMETHOD NKI
+  ((SELF SNARE-DRUM) (TYPE T) (EXPRESSION TREMOLO))
+  #P"Percussion/Drums/F Timp Roll DXF Mod.nki")

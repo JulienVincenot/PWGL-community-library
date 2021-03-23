@@ -1,0 +1,8 @@
+:subtitle "Perturbations"
+:bodytext "All the functions grouped here can be applied to any kind of parameters that can be represented with numbers."
+
+:bodytext  "By perturbations I mean several functions able to change the initial state of a parameter, described by a curve. In this sense you need to imagine that you have a given profile. The perturbation menu gives you some functions that can keep the global original shape, but with some deep changes."
+
+:bodytext "With the term of perturbation I also mean the manner in which a musical entity or any of its parts' form is changed as a result of functions applied by external elements."
+
+:bodytext "ATTENTION : a lot of these examples are based on pitches. That does not mean at all that you cannot apply the same functions to other parameters."

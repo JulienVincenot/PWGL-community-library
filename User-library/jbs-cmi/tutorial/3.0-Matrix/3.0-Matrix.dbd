@@ -1,0 +1,3 @@
+:subtitle "Matrix"
+:bodytext "This part of the JBS-CMI library is devoted to the manipulation of matrices. By matrix I mean a list of lists of elements distributed in columns and rows. This distribution belongs to a given logic or tactic." 
+

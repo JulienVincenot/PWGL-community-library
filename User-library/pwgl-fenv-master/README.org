@@ -1,0 +1,4 @@
+* Fenv
+
+This [[http://www2.siba.fi/PWGL/][PWGL]] library defines ways to use numerical functions as envelopes, called fenvs. It provides a rich set of functions to generate, combine and transform these envelopes. The library also supports transforming BPFs from PWGL into fenvs and vice versa.
+

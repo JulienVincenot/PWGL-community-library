@@ -1,0 +1,1271 @@
+
+===================================================
+SuperVP Copyright (C) 1990-2006 IRCAM 
+version : 2.85.0 (compiled by roebel for AudioSculpt on May  9 2006 01:24:08 ) Prec=Float
+----------------------------------------------------
+    snd file IO using libsndfile-1.0.12, Copyright Erik de Castro Lopo, 
+    licensed under the Gnu LGPL (see: http://www.mega-nerd.com/libsndfile or libsndfile.License) 
+===================================================
+
+helpoptions::
+==============
+
+   -h   :prints out this help description.
+   -ha  :prints out all sections of the help besides the extended 
+            filter description.
+   -hi  :prints out the help message for input options.
+   -hp  :prints out the help message for processing options.
+   -hf  :prints out the description of the different filtering modules.
+   -ho  :prints out the help message for output options.
+
+Generally, SuperVP has two input tracks, if applicable on both tracks
+the options for track 1 are in upper case, for track 2 in lower case.
+
+Option flags specified in <> are mandatory. If option flags are
+specified in [] they may be omitted resulting in a default value.
+
+Parameter files: The parameter files that are not referenced by means of
+a complete path name (either starting with "/", "./", or "../")
+will be prefixed by the directory stored in the environment variable
+SVPPARAMS! If SVPPARAMS is not set the current directory is used.
+
+----------------------------------------------------------
+
+Input options :: 
+================ 
+
+-Bb<start> :    specifies start position (Def: 0.0) in the input file.
+                The starting point may be negative which will
+                add silence in the beginning of the sound.
+
+                If start contains a decimal point or end with s it is interpreted as 
+                time in seconds if not it specifies time in sample number!
+                The first sample is at position 0;
+
+ ------ Examples: -B1.4    starts processing at time 1.4s, 
+                  -B1s     starts processing at time 1s,
+                  -B44100  starts processing at sample position 44100
+----------------------------------------------------------
+
+-Cc[k]<channel> :  specifies the channel to process (Def. all channels or 1).
+                Channel numbers start from 1. The default value depends
+                on the selected output format. For sounds the default 
+                is to process all channels, for analysis data only one 
+                channel can be processed and the default channel is channel 1.
+
+                The modifier k is only supported for the first track '-C'
+                and is used for multi channel files to 
+                keep the channels not selected for processing unchanged
+                in the output file.
+
+
+ ------ Examples: -C2   selects the second channel from a multi channel sound file. 
+                        and creates a mono output file.
+                  -Ck1  selects the first channel from a multi channel sound file
+                        and creates a sound file with the same number of channels
+                        then the input and only the first channel processed.
+----------------------------------------------------------
+
+-Ee<end> :     specifies last selected sample in the input file 
+               (Def: end of file), if end points to samples past the end of
+               file zeros are added to the file content.
+
+               If end contains a decimal point or ends with the letter s
+               it is interpreted as time in seconds, if not it specifies time in 
+               sample number!                
+
+ ------ Examples: -E5.0    end processing at time 5s,
+                  -E5s     end processing at time 5s.
+                  -E88200  end processing at sample 88200 (excluding sample 88200, count starts at 0).
+----------------------------------------------------------
+
+-isdata <track>: File specified for given track (S for first track,
+                 s for second track) contains spectral data 
+                 in g3 or g5 format (see input options -S and
+                 output options -Og3 or -Og5 format)
+
+ ------ Example: -Sflute.g3 -isdata S
+
+                Specifies input data to be read from $SFDIR/flute.g3
+                is in gabarit format
+----------------------------------------------------------
+
+-inplace : stores results into input file. Especially useful when 
+        processing selected segments (-B/-E) in which case
+        only part of the sound is processed and the result is put back into
+        the input file.
+
+        Normalization is not available during inplace processing.
+        When inplace processing is used with time dilation (-D) 
+        the selection of the end of the segment should be carefully 
+        selected such that the phase shift due to time dilation will not
+        lead to artifacts. Therefore a low amplitude region should
+        be used.
+
+    ------ Example: supervp -Sfile.aiff -inplace -Fbande-noex band.par -B1. -E2.
+        Will apply the band filter with parameters band.par to the sound
+        file.aiff. Only the segment from time 1 sec up to 2 sec 
+        is processed and the result is put back into  the original sound.
+
+---------------------------------------------------------------------
+
+-mixlist <mixinfofile> : mix input files as specified in mixinfofile
+        when reading the sound input files. Each entry in the mixer
+        paramete file consists of a file name (possibly quoted by " )
+        and a number of subsequent lines  containing mixing position.
+        If no quotes are given the complete line without any trailing
+        blank characters are used as file name.
+        Any input file may be followed by zero or more target channel
+        mixing description lines.
+        If none is given the file is not used. If more than one is given
+        the file can be mixed into different positions. Each position 
+        descriptor has the form 
+
+        [target_channel/start time 1,source channel 1,mix factor 1/start time 2,...]
+        
+        The first entry (target channel) specifies the channel where
+        the sound should be placed. It has to be an integer number
+        with counting starting at 1.
+        The target channel may be larger than the number of channels
+        of the current input sound -S in which case the number
+        of channels of the output will be increased.
+        After the target channel multiple entries of mixing
+        descriptors specify the placement of the target channel.
+        Each entry is separated by "/". No "/" has to be placed at the end of
+        the list.
+        For each descriptor you need at least specify the start time
+        (where the mixed sound will start relative to the main input sound file) 
+        and the source channel (which channel to use). Additionally, a 
+        third entry may be added to specify a scaling factor that should be applied
+        when mixing this segment. More than a single target channel mixing
+        descriptor may be following a single source file name.
+
+        If no -B or -E option has been specified the output file will contain
+        all  mixed segments. That means that if start times < 0 are specified
+        or the end of a mixing input is located after the end of the main input
+        file the output sound will be longer as the original.
+        If -B or -E have been given they will limit the output sound file
+        accordingly.
+
+        Empty lines and lines starting with # in the mixer input file 
+        will be ignored. A complete example of a mixer input file is
+
+        "./temp/sax8070.aiff"
+        [1/0.1,1/-0.1,1]
+        [1/1,1/-0.1,1]
+
+        "./temp/sax3390.aiff"
+        [2/1,1/0.5,1]
+        "./temp/sax5234.aiff"     
+        # comment: next file is not used
+        "./temp/sax1420.aiff"
+        "./temp/sax1420_3390.aiff"
+        [2/0.6,2/0.5,1]
+        [1/0.4,1/0.5,2]
+
+        ------ Examples: -S sax.aiff -mixlist mix.par
+
+
+
+----------------------------------------------------------
+
+-Ss<filename> : specifies input file name (Def: stdin) 
+                which is relative to $SFDIR  if no full path is given 
+                filename can be either a soundfile or a data file          
+                (see output options -Og3 or -Og5 format) 
+                generated by an earlier call to SuperVP.
+                To specify that a data file is used the corresponding
+                track should be switched to data input mode with the 
+                -isdata flag.
+
+
+                Supported sound files comprise AIFF/AIFC/WAV/NEXT/SDII
+                with all variations of sample size and with u-law/a-law
+                compression.
+
+ ------ Example: -Sflute
+
+                Specifies input data to be read from $SFDIR/flute!
+----------------------------------------------------------
+
+Processing options :: 
+===================== 
+
+-Aa[analysis type (Def: fft)] [] : specifies the analysis procedure. type is:
+
+    fft [order (Def: 30)][tTcC] : Fast Fourier transform [with spectral envelope prewarping]
+           The given order will be used to determine the order of the selected spectral
+           envelope model. The model will be sued to estimate the spectral envelope
+           and prewarp the envelope such that after transposition the envelope
+           stays unchanged.
+           Note, that the spectral envelope prewarping will only be performed
+           if transposition has been specified by means of -transke. 
+
+    ------ Example: -Afft
+
+           FFT analysis without specification of the spectral envelope
+           model and order.
+
+    ------ Example: -Afft 25  or -Afft 25l
+           uses lpc order 25 for the preservation of the spectral
+           envelope. 
+
+    ------ Example: -Afft 25t  or -Afft 100tHz
+           uses true envelope cepstrum model with order 25 or samplerate/(2*100)
+           for the estimation and prewarping of the spectral envelope. 
+    ------ Example: -Afft +25t  or -Afft +100tHz
+           uses true envelope cepstrum model with adaptive order
+           larger than 25 or samplerate/(2*100)
+           for the estimation and prewarping of the spectral envelope. 
+           
+       
+    reasfft  : Reassigned Fast Fourier transform 
+           creates reassigned spectrogram according to Auger/Flandrin. The reassigned spectrogram
+           improves the visualization of the quasi stationary sinusoids and abrupt transients
+           in the spectrogram. It can only be used for analysis.
+
+    ------ Example: -Areasfft 
+
+    lpc [order (Def: 30)] : linear prediction analysis. order is the 
+           number of poles. The lpc filter is multiplied by the 
+           residual energy to have a proper spectral representation. 
+           See -ns/ -truelpc switches for further information on lpc 
+           normalization.
+    ------ Example: -Alpc 50
+
+    lpc_inv [order (Def: 30)] linear prediction analysis with 
+           envelope inversion. order is the number of poles.
+           LPC analysis with with inverted spectrum for inverse
+           filtering (for possible application see -G option or -Fgabarit). 
+           The inverse lpc filter is multiplied by the inverse
+           residual energy such that it may be used to create 
+           normalized excitation signal with the -Gmul mixer. 
+           If you apply inverse lpc filtering using the same signal 
+           for both tracks you create an energy normalized 
+           excitation signal that may be used as excitation for an 
+           lpc spectral envelope obtained with a second 
+           -alpc analysis recreating the energy contour of the related 
+           second signal.
+           See -ns/ -truelpc switches for further information 
+           on lpc normalization.
+    ------ Example : -Alpc_inv 50 
+
+    freeze [nbframes (Def: 30)] 
+           Collect frequency statistics for nbframes and then freeze
+           the amplitudes at frame nbframe and modulate the phase
+           of the synthesized frequencies according the frequency 
+           tables gathered so far.
+    ------ Example : -Afreeze 42 
+
+    newfreeze [parfile|parstring] 
+           freeze the sound at the given time instances for the 
+           specified duration. Multiple freeze points can be established 
+           with the newfreeze modul. 
+
+           Parameter string for each freeze point defines
+
+            start, duration, stat_length
+
+           where
+            start       specifies the start time of the freeze
+            duration    specifies the duration of the freeze
+            stat_length specifies the duration over which frequency
+                        statistics for each frequency bin
+                        are gathered before the freeze
+
+           All values are specified in seconds.
+           The parameters may be specified on the command line as a sequence 
+           of comma separated floating pint values or in a parameter file
+           as a sequence of white space separated floating point values.
+
+           After each freeze the original sound is
+           continued. If the last character of the parameter string
+           is the character e then after last freeze period the sound
+           simply decays to zero without continuing
+           with the original sound.
+           The frequency statistics tables can collect a maximum
+           of 100 frames. Time ranges that extend over more frames are
+           simply reduced to fit this limit.
+           The  frequency statistics are used to modulate the 
+           phases of the synthesized frames. More variation in frequency
+           will result in increased phase modulation which in turn
+           increases amplitude modulation which may reduce the 
+           synthetic impression of freezed sounds.
+
+           The example below freezes the input sound at time
+           0.1s for 0.4s without using the frequency statistics
+           and at time 0.5s for 0.6s modulating phases
+           according to the frequency variations seen over the last 0.1s
+           The sound ends after the second freeze by simply decaying to zero 
+           within half the size of the analysis window. For the same
+           result the freezefile would contain the same string
+           however, replacing the commas by white spaces.
+           The newfreeze module supports phase synchronization see -P.
+    ------ Examples : -Anewfreeze 0.1,0.4,0.,0.5,0.6,0.1,e
+                      -Anewfreeze freezefile
+
+    pic [theshold] [nnumber]: peaks detection
+           threshold is in dB attenuation below 
+               the peak amplitude, (Def: no threshold)
+               a peak is only taken if its maximum is at least threshold dB
+               above the neighboring minim.
+           number is the max. number of peaks in the output, the peaks selected are
+               the  peaks with the largest amplitude. For output they
+               are sorted according to frequency               
+           (attention: no blank between n and value)             
+    ------ Example: -Apic 30 n20
+            detect 20 strongest peaks that have amplitude larger than 30db
+            above the two neighboring minima.
+
+    mask [list] [threshold] [nnumber]: Terhardt algorithm for 
+           spectral smoothing list is a list of words in: 
+           amp     => calculates data needed to output snd pressure excess
+           weight  => calculates data needed to output weight
+           freq,   => calculates data needed to putput true pitch
+           all     => calculates all of the above      (def: weight)
+           threshold (see -Apic)
+           number is the max. number of peaks, for mask peaks are selected according
+           to their weight.
+           (no blank between n and value)
+    ------ Example: -Amask amp, weight 10 n20
+
+    ced [order] : discrete cepstrum analysis. Provides a spectral envelope.
+           default order is (Def: 30).
+    ------ Example: -Aced 55 or -Aced 100Hz
+           Use 55 (first case) or fftsize*100/samplerate as the order of
+           the cepstrum.
+
+    tenv [order] : true envelope cepstrum analysis. Provides a spectral envelope.
+           default order is (Def: 30). 
+
+    ------ Example: -Atenv 55 or -Atenv 100Hz 
+           Use 55 (first case) or samplerate/(2*100) as the order of
+           the cepstrum.        
+    ------ Example: -Atenv +55 or -Atenv +100Hz,1 
+           Use adaptive order larger than 55 (first case) or samplerate/(2*100)
+           as the order of the cepstrum.        
+    ------ If -F0 flag is given as well the trueenv order is dreived from the
+           f0 file at the current timeposition by means of
+           samplerate/(2*100)
+
+
+    f0 [fmmin,][fMmax,][FFmax,][snthreshold,][smoothorder] : pitch detection
+           fm is followed by minimum value for pitch in Hertz (Def: 50)
+           fM is followed by maximum value for pitch in Hertz (Def: 2500)
+           F  is followed by maximum frequency in spectrum (Def: 7500)
+           sn is followed by noise threshold in dB (Def: 50)
+           smooth is followed by median smoothing order (Def: 1 (no smoothing))
+                 smoothing order is enforced (rounded up) to be uneven!
+
+           There is no blank between the parameter name and its value.
+           The output file will be in SDIF format as long as -Oa is not given 
+    ------ Examples: -Af0 "fm100, fM1000, F2500, sn60, smooth3"
+                         -Af0 fm10,sn25
+    formant_lpc [nnumber] [lpc order] : formant detection
+           from a spectral envelope computed via lpc.
+           In this analysis a formant is understood to be a peak of
+           the spectral envelope calculated using the lpc analysis module.
+           number is the max. number of formants to detect (Def: 5)
+           (ordered according to increasing frequency) (no blank between n and value)
+           order is the lpc order (Def: 15).
+    ------ Example: -Aformat_lpc n3 10
+
+    formant_ced [nnumber] [ced order] : formant detection
+           from a spectral envelope computed with discrete cepstrum.
+           In this analysis a formant is understood to be a peak of
+           the spectral envelope calculated using the ced analysis module.
+           number is the max number of formants to detect (Def: 5)
+           (ordered according to increasing frequency) (no blank between n and value)
+           order is the ced order (Def: 45).
+    ------ Example: -Aformant_ced n16 55
+ 
+
+    ced_inv [order] discrete cepstrum analysis with envelope inversion.
+           Use it like CED analysis, however, the spectral enevlope will be  inversed. 
+           For whitening filter (see -G option).
+           Order is the cepstrum order  (Def: 30). For order interpretation see -Aced.
+    ------ Example : -Aced_inv 50  or  -Aced_inv 100Hz
+           For order interpretation see -Aced
+
+    tenv_inv [order] true envelope cepstrum analysis with envelope inversion.
+           Use it like tenv analysis , however, the spectral enevlope will be  inversed.
+           For whitening filter (see -G option).
+           Order is the cepstrum order  (Def: 30). For order interpretation see -Aced.
+   ------ Example : -Atenv_inv 50 or -Atenv_inv 100Hz
+
+Please read -O section for the formatting of the output data.
+----------------------------------------------------------
+
+-avseg <file or pair of time values> :
+        computes averaged spectra for the time segments specified.
+        If a file name is given this file should contain pairs of start - and 
+        end times of the segments. The segments can also given as a comma separated list
+        of times directly on the command line.
+        If only a single number is given single segment is formed that
+        starts at the time given and continues until the end of the sound.
+        The segment positions need to be in increasing
+        time order and cannot overlap.
+
+        You need to select the output options
+        -OM1 or -OM2 to obtain the spectral
+        averaged output. See -OM for further information 
+        on the output format.
+
+        ------ Example: -avseg 1.0,1.1 -OM1
+
+        adds an segment lying between 1.0s and 1.1s to the list of segments.
+        and stores the averaged spectrum in the output file. 
+----------------------------------------------------------
+
+-D[coefficient (Def.: 1)] or -D<filename> : constant or time-varying time-stretching
+
+ Apply time dilation to input sound. 
+
+---   Examples: -D2.0  (dilation of 2, duration is doubled)
+                -D0.5  (compression, duration will be divided by 2)
+
+   parameter files are used for time varying operations. The files contain
+   multiple lines indicating:
+
+     time dilate_coefficient
+
+   The entries are linearly interpolated to derive the time dependent
+   dilation. The dilation coefficient before the first and after the 
+   last file entry is extrapolated keeping its value constant.
+   The -D flag may be given more than once in which case
+   the result is a multiplication of the requested individual values. 
+
+   Time varying dilation and transposition may be applied in a
+   single SuperVP call in which case the requested dilation is and the time 
+   compensation for the transposition are added.
+
+   The optimal analysis step size is calculated automatically if no -I option
+   is specified. This is recommended especially for time-varying 
+   dilation/transposition.
+
+   You may use the -P switch for phase synchronized processing.
+
+----------------------------------------------------------
+
+-envtr <multiplier> : if given together with the transposition 
+        with envelope preservation (-transke) the preservation
+        algorithm will transpose part of the spectral envelope
+        and keep only the high frequency parts unchanged.
+        This modification tries to achieve to two objectives:
+        First, prevent any degradation of the lower harmonics
+        when transposing down. This problem arises due to the fact 
+        that the spectral envelope below the fundamental is usually
+        very weak such that transposing down  results in a los of 
+        the lower partials
+        Second, It is well known that the first formant moves 
+        together with the fundamental. This behaviorcan be mimiced
+        with the -envtr flag.
+        There are two modes of operation that are distinct in the way the
+        point of change between envelope transposition and 
+        envelope preservation is determined. The first mode
+        determines the crossover point in terms of the given 
+        multiplyer values times the position of the first maximum
+        of the spectral envelope. The second mode is selected if
+        the -F0 flag is given which provides a bpf file with
+        f0 values. If this flag is present the crossover point
+        is selected to be at the frequency determined by the
+        f0 value of the current frame times the multiplyer.
+        This mode is especially useful for transposing down to prevent
+        loss of energy in the fundamental.
+        
+-----------------------------------------------------------
+
+-envf0sc <scale_factor> :                  (Def.: 1.0) 
+        if  adaptive true envelope order 
+        has been requested -Afft +<minord>t/-Atenc +<minord> and the -F0 
+        flag has been given the optimal order that can be drived from
+        the current f0 will be calculated according to
+
+        order = srate / f0 * 0.5 * scale_factor
+
+        in case of the default value the envelope ordersiu selected
+        such that an optimal bandlimited interpoaltion is obtained.
+        To increase the smoothness of the envelope a order scale factor
+        in the range [0,1] can be specified which will reduce
+        the selected order according the above formula.
+        The order will, however, never be smaller than the minord
+        value spacified with the -A flag. 
+
+        ---- Example:  
+
+        -envf0sc 0.5  -> reduces selected true envelope order 
+
+-----------------------------------------------------------
+
+-envmo <modeflag>  :                      (Def.: 1) 
+        sets the estimation mode for true envelope analysis.
+        The mode flag is an integer with the bits encoding
+        different options. The  bits that are used are bit 1 to 5
+        which can be ored together to select the 
+        different modi. The impact of the various bits are as follows:
+        
+        bit 0 : if set -> use hamming window for cepstral smoothing
+        bit 1 : if set -> use log mel frequency scale
+        bit 2 : if set -> select mean mode for subsampling  (less precise)
+        bit 3 : if set -> don't use step size control (for debug only)
+        bit 4 : if set -> use straightfoward non optimized algorithm (for debug only)
+        bit 5 : if set -> don't use sub sampling  (for debug only)
+
+        ---- Example:  
+        -envmo 0  -> switches off hamming windowing in cepstral domain
+        -envmo 3  -> transforms to log frequency scale before
+                     envelope estimation.
+         
+-----------------------------------------------------------
+
+-envscal <scaling factor> or <scaling factor bpf file>:     
+-envscal-no <scaling factor> or <scaling factor bpf file>:      
+
+        apply amplitude rescaling of log amplitude spectral envelope
+        of the sound in track 1.
+        Allows to rescale the spectral envelope of the input sound
+        in the analysis module. The given scaling factor 
+        is multiplied with the log amplitude spectral envelope
+        that is obtained according to the envelope
+        estimation options given with -Afft flag. The main
+        application is removal of the spectral envelope
+        which can be achieved by supplying a scaling factor
+        0. Effects may be achieved by amplifying
+        the spectral envelope. Or by means of inverting it
+        if negative scaling factors are given. Instead of a constant 
+        factor a break point function file may be specfied that
+        should contain the time value pairs of the time dependend
+        envelope scaling factor. 
+
+        The -envscal parameter can be used as well to scale the envelope
+        obtained by means of the -Atenv analysis.
+
+        Normalization:
+        if the -envscal-no version of the flag is used the envelope
+        is scaled such that the energy of the residual will
+        be normalized. 
+         and the energy is normalized to 0dB
+
+        ---- Example: -envscal 0
+        would remove the spectral envelope from the input sound        
+        creating a residual signal similar to an lpc filter
+
+        ---- Example: -envscal-no 0
+        would remove the spectral envelope from the input sound        
+        creating a residual signal similar to an lpc filter
+        however, with normalized energy contour.
+
+        Note: if envelopes created with "-Atenv -envscal y" 
+        are applied to complete the spectral envelope that has been
+        partly suppressed by means of "-Afft -envscal x" 
+        you need to organize the scaling parameters x and y
+        such that they obey the relation x + y = 1.
+        Furthermore you should either use the normalizing
+        or non normalizing version for both operations.
+
+-----------------------------------------------------------
+
+-Ff<filtertype> <filename> specifies filter
+        filtertype is one of
+
+                bande, gabarit, breakpt, surface, fof, fifof
+                clip, denois, fshift
+
+        filename is a file containing filter parameters.
+
+        Multiple filters can be applied during one call to SuperVP.
+        use option "-hf" for a description of available filters 
+        and the related parameter file format.
+
+        ------ Example: -Fbande file
+
+----------------------------------------------------------
+-Ff<superposition mode>
+
+        If multiple filters of the types bande, gabarit, breakpt,
+        surface, fof, fifof are applied the standard behavior superimposes 
+        the filters by means of multiplying the transfer functions.
+        This behavior is explicitely selected by specifying -FCombineMul.
+        The alternative is -FCombineMax which will only apply the
+        filter with maximum amplitude.
+
+        The Mode of Superposition may be selected independently
+        for the two tracks
+
+        ------ Example: -FCombineMax -fCombineMul
+
+----------------------------------------------------------
+
+-F0/-f0 <file or value>
+
+        Specifies an f0 analysis file (ascii bpf or SDIF 1FQ0)
+        or a constant value that will be used as f0 value 
+        for the current input file. The values are mainly used
+        in conjunction with envelope estimation/preservation
+        see (-Afft ord/-Atenv ord/-envtr/-envf0sc)
+
+        ------ Example: 
+
+        -F0 200      -> use a fixed value for the f0 of the whole file
+        -F0 f0.sdif  -> read the f0 values from the sdif file f0.sdif
+
+----------------------------------------------------------
+
+
+-G<cross-synthesis type> [filename] or
+  <cross-synthesis type> [-X<val>(Def:1.)] [-x<val>(Def:1.)]
+                     [-Y<val>(Def:1.)] [-y<val>(Def:1.)] [-q<val>(Def:1.)]
+
+   Combine the two different tracks into a single track. Suppose S1 S2
+   are the short time FT spectra of the two input channels and SO 
+   is the resulting spectrum of the  cross-synthesis and X/x/Y/y/qval is
+   the value specified with flag -X/x/Y/y/q then the mixer operation
+   is for
+
+   cross type add: transform input spectra into representation
+        using real/imaginary part and calculate
+             
+          SO = Xval * S1 + xval * S2,
+
+   cross type cross: S1 and S2 are calculated in amplitude/freq
+          representation and the output is
+
+          Amp(SO) = Xval*Amp(S1) + xval*Amp(S2) +qval*Amp(S1)*Amp(S2)
+          Fre(SO) = Yval*Fre(S1) + yval*Fre(S2),
+
+   cross type mul: (source-filter), S1 and S2 are transformed 
+        into Amp/Phase representation and the output is
+               
+             Amp(SO) = Amp(S1)*Amp(S2)
+             Pha(SO) = Pha(S1)+Pha(S2),
+
+   cross type amul: (source-filter), S1 and S2 are transformed 
+        into Amp/Phase representation and the output is
+               
+             Amp(SO) = Amp(S1)*Amp(S2)
+             Pha(SO) = Pha(S1),
+
+   cross type pmul: (source-filter), S1 and S2 are transformed into
+        Amp/Phase representation and the output is
+               
+             Amp(SO) = Amp(S1)
+             Pha(SO) = Pha(S1)+Pha(S2).
+
+   filename is the parameter file for add and cross modes.
+
+        for cross mode the file is made of lines with: time X x Y y q
+        for add mode the file is made of lines with: time X x
+
+ Notes:
+   Order and position of the -XxYyq flags is free.
+
+   The processing is stopped in cross and add mode if both files are finished,
+   in mul/amul/pmul mode if either source is finished.
+
+   Note that the increment step of the second track is adapted 
+   to match the duration of both sources if you do not specify the
+   step size for the second channel with -i explicitely
+
+------ Examples: -Gadd file
+                    -Gadd -X1.0 -x2.0
+                    -Gcross -X0.5 -x0.5 -Y1.0 -y1.0 -q0.0
+
+  with mul mode inverse filtering to obtain a normalized excitation
+  can be performed with the same  sound on both channels.
+  ------ Example :
+     supervp -Ssound_file -ssound_file -Gmul -Z -Afft -alpc_inv 15 output_file
+----------------------------------------------------------
+
+-ggain <gain_factor or filename> or -gtremolo <mode> <filename> -gfilter <filter_parameters or filename>: amplitude modulation
+   gain <filename>: multiplies output samples with envelope specified in file
+                    file contains lines with time envelope
+   tremolo <mode> <filename>
+           mode is the type of amplitude modulation
+            sinus
+            carre (square wave)
+            triangle
+            scie (sawtooth wave)
+            file contains lines with time depth
+   filter <parameters or file>
+        filter signal using a linear filter that implements
+        o(n) = sum_i b_i x(n-i*K) - sum_j a_j o(n-j*L).
+        the filter parameters b_i,a_j are either specified directly
+        on the command line or in the parameter file.
+        The format is : K,b_0,b_1,...;L,a_0,a_1,..
+        If a_0 is not equal 1 all a_i are normalized by a_0. 
+        The semicolon can be replaced by means of a slash /
+        
+        ------ Examples: -ggain file
+                         -gtremolo sinus file
+                         -gfilter 1,1,0.2;3,1,0.5
+----------------------------------------------------------
+
+-H<sample rate> : specifies new sampling rate
+   the header of the sound file will be changed
+   If this option is used, don't use -A and -Z.
+        ------ Example: -H32000
+----------------------------------------------------------
+
+-Ii<step> or -Ii<method> <filename> or -I<num/mem> <step> 
+   or Ii<pos> filename step: 
+    specifies analysis step
+    the step for analysis is in samples 
+    (Def I : max(1,min(window_size/8,window_size/time_dilation/8))
+    (Def i : step size track 1 /*length track 2/length track 1)
+
+    <method> is the method for reading parameter file name
+        num  same as giving a numerical value (no parameter file)
+        mem  input is callback (only for use in svp library applications)
+        sync ordered pairs in parameter file (time, fundamental
+             frequency) (not working)
+        dep  ordered pairs in parameter file (time, step value) (not working)
+        pos  sample position in the sound file is given for each
+             window, the additional step will be used as virtual step (vstep)
+             for the analysis and resynthesis. This parameter is only needed
+             when resynthesis (-Z) is requested. The file consists of
+             lines containing:
+
+             single position        : indicating the  sample
+             (ex: 10000.)             position to read the next frame
+                                      The frame is positioned in
+                                      the output stream with
+                                      location given by vstep.
+             "c" followed by pos    : indicating a repositioning
+             (ex: c 10000.)           of the frame position
+                                      without really creating any output.
+             "u" followed by pos    : indicating a target position
+             (ex: u 10000.)           The frame increment is calculated
+                                      automatically and a sequence
+                                      of frames is created that stops with the last
+                                      frame having its center at
+                                      position "pos".
+             "f"                    : automatically move forward until                                      
+                                      a new position can be read from
+                                      the parameter file, only useful
+                                      if reading from a named pipe.
+                                      Position increment is the same
+                                      as with "u pos"
+             "b"                    : automatically move backward until
+                                      a new position can be read from
+                                      the parameter file, only useful
+                                      if reading from a named pipe.
+                                      Position increment is the same
+                                      as with "u pos"
+
+        ------ Examples: -I256
+                         -Ipos posfile 
+
+            example posfile:    
+            u 30000             (: read frames until sample position 30000)
+            c 100000            (: position frame at sample position 100000)
+            u 30000             (: read frames backward until sample pos 30000)
+            c 100000            (: position frame at sample position 100000)
+            u 200000            (: read frames until sample position 200000)
+
+            The sequence of position commands will process the file
+            and apply all treatments using the sound segment between
+            sample 0 and sample 200000 with the special effect to
+            reverse the sound samples located between sample 30000 and 100000.
+
+----------------------------------------------------------
+
+-J<type> : specifies synthesis window type 
+        (Def:same as the principal track)
+        supported windows see -W
+----------------------------------------------------------
+
+-logfile filename : sets message output file to filename, the filename
+stderr is treated as special indicator for stderr output
+----------------------------------------------------------
+
+-Mm<window size> or -M<method> <filename> : specifies analysis window size
+    the window size for analysis is in samples (Def: 1024)
+    <method> is the method for reading the parameter file name
+        num  same as giving a numerical value (no parameter file)
+        sync ordered pairs in parameter file (time, fundamental frequency) !!currently not supported!!
+        dep  ordered pairs in parameter file (time, window size)           !!currently not supported!!
+        ------ Examples: -M2000
+                         -Mdep file
+----------------------------------------------------------
+
+-N<FFT size> : specifies FFT size
+    the FFT size in samples (Def: 1024)
+    must be greater than window size, see -Mm
+        ------ Examples: -N4096
+                         -N8192
+----------------------------------------------------------
+
+-nn do not normalize output sound file (this is default now)!
+   ATTENTION : The use of -nn is strongly discouraged. Since version 1.75
+   no normalization is the default behavior and -nn flag is no 
+   longer supported and will be switched of in future versions!
+   See -norm flag
+---------------------------------------------------------------------
+
+-norm [level (Def.: 0)] normalize output sound file to level dB below
+   maximum range of the output data type.
+   0dB normalization produces data in the range 
+   between +/- 1.0  for floating point sample format and
+   in the range between +/- (2^(N-1)-1 for N Bit integer sample format. 
+
+   NORMALIZATION Behavior changed!! If -norm option is not given normalization
+   is NOT performed.
+
+   IMPORTANT : when normalizing, SuperVP uses a temporary file. It's length is 
+   the same length of the processed sound file when using 32bit floating point
+   packing mode or twice the length when using 16bit short packing mode.
+   Temporary file is created in SVPTMP (setenv SVPTMP mytemporarydirectory).
+   When SVPTMP is not set, SFDIR is used.  If SFDIR is not set, current 
+   directory is used. If the chosen directory is not writable, then /var/tmp 
+   is used.
+---------------------------------------------------------------------
+
+-ns requests spectral normalization for analysis output, which 
+   results in amplitude values to be below 1 (Def: no normalization)
+----------------------------------------------------------
+
+-oversamp <val> :
+        specfies the minimum overlap of analysis and synthesis windows. 
+        The maximum increment between successive windows 
+        is specified in terms of parts of the window size (Def: 8). 
+        Smaller values indicate less overlap which results in less
+        quality but also reduced computational costs.
+        The default value (increment not larger then an 8-th part of the window)
+        ensures very high quality for all situations. Values above  4
+        will be almost always sufficent. For values below 4
+        artifacts are unlikely but may occur. Minimum value is 2.
+
+        ------ Examples: -oversamp 4
+        
+
+----------------------------------------------------------
+
+-P[tp] : switches on phase synchronization (Def: no phase sync)
+      and possibly transient preservation 
+      mode for time dilation (see -D) or newfreeze modul. 
+      It generally improves amplitude reproduction and decreases 
+      the phasiness when processing non stationary sounds. This switch 
+      will be ignored if no dilation/newfreeze is requested.
+
+      Transient preservation is switched on if the 
+      tp is larger than 0 (Def: no transient preservation/tp=0).
+      Transient preservation localizes transients peaks in 
+      time/frequency domain and re-initializes phases for the related bins
+      after the transient has passed in order to keep
+      the wave form of the transient. 
+
+      transient detection parameters can be changed by means of
+      -td_thresh/-td_G/-td_nument/-td_band/...
+
+----------------------------------------------------------
+
+-Rr<samplerate> : specifies sampling rate
+     needs to be specified if raw (header-less) sound samples are
+     treated. If -R or -r flag is given the automatic determination
+     of the sound format is skipped! For raw samples 4 byte float
+     encoding is assumed. For all other cases the -R/-r flags should not be 
+     used to allow the automatic determination of the sound file 
+     format!
+
+ ------ Example: -R44100
+
+     select sound input to be raw float samples with 44.1kHz
+     samplerate.
+ 
+----------------------------------------------------------
+
+-rnd_stval <alpha> :                (Def.: 0.2)
+        specifies the extend of the random
+        phase component that is added to the synthesis phase
+        for phase randomization. The value is the
+        maximum value of the random phase used at the vu-frequency
+        limit in terms of a factor for Pi. The value given will be used directly
+        at the voiced/unvoicd frequency limit and will linearly
+        increase over the frequency range until at the frequency
+        specified with the -rnd_nfbp flag the phase randomization
+        reaches its maximum with normalized phase
+        randomization of value 1.
+
+-rnd_nfbp <normalized freq> :            (Def.: 1)
+        break point for which maximum randomization
+        of the partial phase will be achieved
+        in terms of the Nyquist frequency.
+
+----------------------------------------------------------
+
+-resS <value> : specifies stopband attenuation of the interpolation filter
+        used for resampling (Def: 70dB)! 
+        The window size and oversampling of the interpolation filter
+        are automatically adjusted to achieve the requested
+        attenuation of aliasing resulting from the interpolation
+        process! To prevent excessive filter sizes attenuation of
+        more than 140dB are not recommended.
+
+----------------------------------------------------------
+
+-t  :displays the current processing time in the input file
+----------------------------------------------------------
+
+-T  :displays the current processing time in the output file
+----------------------------------------------------------
+
+-td_int  :
+         switch to require integration of mean time for transient
+         detection over td_nument peaks. This will improve
+         robustness against detection of noise (Def: 2)
+
+        ---- Example: -td_int
+----------------------------------------------------------
+
+-td_thresh <value> :
+        adjust threshold of peak mean time (center of gravity of the energy
+        of the signal related to the peak)      to detect a transient peak
+        (Def: 1.4). The mean time to end a transient is
+        related to the mean time of a simple ramp covered by the
+        analysis window. The amount of access mean time to detect a start
+        of a transient is determined by td_thresh. By increasing
+        td_thresh the transients need to be more pronounced 
+        with respect to the noise background to be detected as
+        transient. The parameter is required to be above 1
+        because other wise the transient would be ended before it began.
+        Optimal thresholds depend on the noise in the signal and on the
+        confidence threshold determined by -td_G, however, a range between
+        1.2 2.5 is usually reasonable.
+
+        ---- Example: -td_thresh 2
+
+----------------------------------------------------------
+
+-td_G <value> :
+        confidence factor to use when comparing the number of attack
+        transient peaks in the transient statistic
+        bands current frame and comparing it to
+        the number of attack transients in the related band
+        in the previous frame.
+        The larger the value the higher the number of attack transient
+        peaks in the current frame needs to be to be 
+        detected as part of an attack transient.
+        The value denotes the access of the  transient peak
+        frequency estimated in previous frames in terms
+        of the  standard deviation (Def: 2.5)
+
+
+        ---- Example: -td_G 2
+
+        Reduce transient attack confidence by requesting
+        only an access of 2 times the standard deviation
+        for a band to be detected as transient.
+
+
+----------------------------------------------------------
+
+-td_band <value,value> :
+        band  in Hz used for transient detection.
+        only spectral peaks within the band will be used to 
+        determine transient regions. (Def: 0,sample rate/2)
+
+        See: -td_nument
+
+----------------------------------------------------------
+
+-td_nument <value> :
+
+        band size  used for the statistical monitoring
+        of noise related background transient activity.
+        Band size is specified in terms a number of peaks (mainlobe width)
+        that fit into the band (Def: 10). 
+        
+        This parameter controls the impact of a single transient peak
+        for the detector. The smaller the number of peaks in the
+        band the more impact a single sinusoid has. The allows to 
+        detect transients more sensitively even if they are close
+        to stationary signals. At the same time it will increase the 
+        probability of false detections in noisy regions.
+
+        ---- Example: -td_nument 30
+
+        requires to collect transient statistics in bands that may
+        hold 30 stationary sinusoidal peaks.
+
+        See: -td_G
+
+-----------------------------------------------------------
+
+-td_ampfac <value> :
+        specifies factor to use to compensate the missing
+        contributions from previous frames when restarting
+        after a attack transient (Def: 1.8).
+
+        ---- Example: -td_ampfac 1.
+
+        when restarting phases after attack transient multiply
+        amplitude by 1. instead of default value 1.8.
+        This will remove the compensation of the missing amplitude 
+        info from the frames before the attack transient has been 
+        restarted.
+
+----------------------------------------------------------
+
+-td_nosync  :
+        requires to not syncronize transients detected in different 
+        channels of a multi channel audio file. Per default the
+        transients of the different channels are synchronized to
+        prevent the artifacts resulting from the fact that the
+        transients in the different channels may be detected at different 
+        places or may be detected only in one of the channels.
+
+        ---- Example: -td_nosync
+
+----------------------------------------------------------
+
+-td_relax <value> :
+        specfies time constant in ms with that the amplitude compensation
+        indicated by td_ampfac should relax (Def=-1).
+         
+        The value -1 indicates that now relaxation should
+        be performed in which case the value indicated by -td_relaxto
+        is ignored. 
+        In all other cases the amplification of transient regions
+        relaxes with a time constant specified. The initial multiplication
+        factor after a transient has been detected is td_ampfac.
+        This factor relaxes too the factor indicated by td_relaxto.
+        The minimum and maximum  relaxation time constants are 0ms, and 3000ms
+        respectively.
+
+        ---- Example: -td_relax 100
+
+----------------------------------------------------------
+
+-td_relaxto <value> :
+        specfies the amplification factor that the transient multiplier
+        will have after complete relaxation (Def=1).
+         
+        This factor can be used to control the part of the stationary
+        sound that will rest in the output when transient extraction
+        is with transient relaxation with user specified
+        relaxation time constant is applied.
+
+        ---- Example: -td_relaxto 1
+
+----------------------------------------------------------
+
+-td_mina <value> :
+        specifies minimum amplitude that an attack transient
+        needs to achieve to be detected (Def: 0). The amplitude 
+        reference is interpreted as a normalized value.
+
+        ---- Example: -td_mina 0.01
+----------------------------------------------------------
+
+-td_declick <value> :
+        specifies maximum duration of click events in seconds.
+        All transients that start sound events of duration shorter
+        than the given duration will be removed from the signal.
+
+        ---- Example: -td_declick 6.3492e-04
+
+        Removes clicks that have been detected as transients
+        with duration shorter than 0.63492ms.
+
+        Note that click removal is related to transient 
+        detection and therefore it will only work if 
+        the -D (with any argument) and the -P1 flag have been   
+        given on the command line.
+
+----------------------------------------------------------
+
+-trans <cents> or <filename> : transposes by the given number of cents
+        applying time correction to compensate the 
+        duration effects of transposition by means of resampling.
+        Transposition requires the -A and -Z flag. 
+        For time varying transposition a parameter file has to be used
+        which contains lines with:
+
+            time transposition
+
+        Which are linearly interpolated. Since supervp 2.40 the trans flag
+        may be given more than once in which case the effective
+        transpositions are added. transpositions are always
+        extrapolated outside the range specified in the parameter file.
+    
+    ------ Example: -trans 1200 (will transpose one octave up)
+
+-transnc <cents> or <filename> : Applies transposition without
+        time correction. The perceived pitch is changed by means of
+        sample rate conversion without changing the samplerate
+        of the resulting signal. Therefore the length of the sound
+        will be changed. The parameters or parameter  files and
+        are equal to the -trans flag. -trans and -transnc flags may
+        be given more than once even with overlap in which case 
+        the requested transpositions are added but will only be
+        partly compensated.
+
+    ------ Example: -transnc 1200 (will transpose one octave up)
+
+----------------------------------------------------------
+
+-truelpc : do not apply any normalization after lpc in the analysis section.
+           Intended for using lpc analysis for lpc filtering.
+----------------------------------------------------------
+
+-Uu : specifies the position of the first window with respect to
+      the first sample (Def: window centered at first sample)
+
+      -U/-u moves the window such that its first sample matches the
+      first sample of the sound.
+----------------------------------------------------------
+
+-v  :prints out details about the SVP patch structure and parameters
+----------------------------------------------------------
+
+-Vuf <value> or <bpffile> : 
+        the Vuf parameter serves to specify the voiced/unvoiced frequency
+        limit in Hz above which phase randomization
+        according to the parameters (-rnd_stlim/-rnd_ff)
+        should be applied. Phase randomization is applied
+        during synthesis show the -Vuf flag has no meaning if no -Z
+        flag is given. The argument is either 
+        a fixed value or a breakpoint function file that
+        contains time value pairs with the frequency limit specified in Hz.
+
+        If the shape invariant processing has been requested and
+        no -Vuf flag has been given the voiced/unvoiced frequency limit 
+        will be automatically estimated.
+----------------------------------------------------------
+
+-Ww<type> : specifies analysis window type
+    the analysis window type (Def: hanning)
+    supported windows:
+       rectangular (rect, rectangle)
+       triangular  (triangle)
+       hamming
+       hanning
+       blackman
+       exactblackman
+
+ ------ Example: -Wblackman
+----------------------------------------------------------
+
+-Z : performs a resynthesis (inverse FFT and overlap/add)
+----------------------------------------------------------
+
+Output options :: 
+================= 
+
+<output filename> 
+  The outputfile is specified without option switch as 
+  last parameter of the command line. If no output file is specified or the name of the file
+  is "stdout" the result is directed to stdout.
+  if the name of the output file is "18" the output is not 
+  stored as a file but directly played as sound via the audio hardware
+  The default latency is 0.5 sec and can be changed by means of adding a 
+  float number to the play file name. For example 180.2 would indicate
+  play the sound with latency 0.2 sec
+
+-O<mode>:<list> or -O<mode> <file>
+  <mode> is the output type (b)
+  SOUND modes :
+   sa  for AIFF/AIFC  16bit integer soundfile format.
+       sA8,sA16,sA24,sA32 select the different sample size in bits
+       sAf,sAd  select float or double samples in AIFC format.
+   sA  equivalent to Sa
+   sis for Ircam 16bit integer soundfile format.
+   sif for Ircam 32bit float   soundfile format.
+   sw  for wav 16bit integer sound file format.
+       sw8,sw16,sw24,sw32  select the different sample size in bits
+       swf,swd select float or double samples in WAV format.
+   sW  equivalent to sw.
+   sn  for NeXT (.au)  16bit integer soundfile format.
+       sn8,sn16,sn24,sn32  select the different sample size in bits
+       snf,snd select float or double samples in NEXT (.au) format.
+
+ss  for Mac Sounddesigner II format
+
+srs for raw   16bit integer soundfile.
+   srf for raw   32bit float   soundfile.
+
+  IMPORTANT : default format and packing mode (integer or float) differ 
+   according to the output type (a file or a pipe):
+        File output : those of the input processed sound (not normalized).
+        Pipe output : raw 32bit float (not normalized).
+
+ANALYSIS Output Modes : 
+   a for ASCII analysis data output 
+   b for binary analysis data output (default) 
+   g0            : Unified file format, data is log amplitude stored as unsigned char
+   g1,g2,g3,g4,g5,g6: Unified file format, see below and gabarit filter
+   S0,S1,S2,S3,S4,S5,S6: Unified file format stored as SDIF file 
+   T             : sdif file containing description of attack transients
+   F+,F-         : sdif file containing local maxima  of averaged spectral differences 
+                   (add selects regions with  increasing (+) or decreasing (-) amplitude for difference evaluation, Def: +)
+                   
+   M1,M2:        : averaged spectral information for all segments specified
+                   via -avseg flag. Output is stored in an SDIF file in an 1AVS/1AVS
+                   Matrix following an IAVS frame denoting analysis infos.
+                   The M1 mode  outputs the mean and standard deviation of the absolute
+                   spectrum for each bin, the M2 mode outputs maximum and standard dev.
+                   of the absolute spectrum for each bin. Note, that the power spectrum
+                   can be derived from M1 results by (mean*mean + stddev*stddev)!
+   E             : output for envelope data using standard sdif 1ENV data frame 
+                   the envelope coefficients in the respective SDIF frames 1CEC/1ARR.
+
+Format ( binary file + header like gabarit file ) using   FFT, LPC, CEPSTRE.
+   File content is respectively t,8-bit logamp; t,amp ; t,phase ; t,amp,phase ;
+   t,freq,amp ; t,pr,pi; t,amp for the gabarit modes 0-6.
+
+   g1,g6,g2 formats work with gabarit filtering and g4,g5 ones
+   work with the synthesis module with data on input channel.
+   g3 format works with both. For a complete description of the gabarit 
+   format see -Fgabarit filter.
+   Use these format with -Oxx option (no more arguments on
+   command line)
+   ------------- Ex : -Og3
+   Using other format arguments will print a warning but
+   the right output format will be set.
+
+   <list> is a list of strings separated by ','
+         number, time, amplitude, frequency, phase, etc..
+   <file> is a text file where output format is specified
+    ------ Examples: -Oa:number,amplitude,phase
+                         -Oa foo.format
+----------------------------------------------------------
+
+List of available strings as output data
+        t,time: time (of frame)
+        number: number (of entries per frame)
+        a,amp,ampl,amplitude: linear amplitude
+        adb,amp_db,ampl_db,amplitude_db: amplitude in dB
+        pr,partie_reelle: real part of a complex number
+        pi,partie_imaginaire: imaginary part of a complex number
+        f,fhz,freq,frequence: frequency in Hz
+        midicents,fmc: frequency in midicents
+        i,ind,index: frequency as fft-index 
+        chan,chan_freq: center frequency of fft-channel  
+        ph,phase: phase
+        spl: sound press excess
+        weight: harmonic weight
+        tsp,truesp,truepitch: harmonic true pitch
+        sc,score: score
+        coeff,coeff_pitch: pitch confidence
+        largeur,largeur_formant: formant width
+        cf,coeff_filtre: autoregressive lpc filter coefficients
+
+------------------------ Allowed combinations -----------------------
+                 fft    ced/tenv    mask    f0    formant   pic  lpc
+partie_reelle    OK,       OK,       NO,    NO,     NO,     OK,   OK
+partie_imagin    OK,       OK,       NO,    NO,     NO,     OK,   OK
+frequence_hz     OK,       OK,       OK,    OK,     OK,     OK,   OK
+frequ_cents      OK,       OK,       OK,    OK,     OK,     OK,   OK
+frequ_midicents  OK,       OK,       OK,    OK,     OK,     OK,   OK
+frequ_inst       OK,       OK,       NO,    NO,     NO,     OK,   OK
+amplitude_lin    OK,       OK,       OK,    OK,     OK,     OK,   OK
+amplitude_dB     OK,       OK,       OK,    OK,     OK,     OK,   OK
+phase            OK,       OK,       NO,    NO,     NO,     OK,   OK
+sndpressexcess   NO,       NO,       OK,    NO,     NO,     NO,   NO
+truepitch        NO,       NO,       OK,    NO,     NO,     NO,   NO
+weight           NO,       NO,       OK,    NO,     NO,     NO,   NO
+score f0         NO,       NO,       NO,    OK,     NO,     NO,   NO
+coef pitch       NO,       NO,       NO,    OK,     NO,     NO,   NO
+forma bandwidth  NO,       NO,       NO,    NO,     OK,     NO,   NO
+coeff filtre LPC NO,       NO,       NO,    OK,     NO,     NO    OK
+Done.

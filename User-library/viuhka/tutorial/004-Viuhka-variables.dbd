@@ -1,0 +1,15 @@
+:title "Viuhka variables"
+
+:bodytext "Viuhka contains a collection of Viuhka variables that give various sorts of information during the calculation of a Viuhka score. Viuhka variables are typically used inside the input circ-lists and allow the user to specify expressions that react to the current state of the system (the current state refers to the Viuhka variables discussed below)."
+:bodytext "It is important to understand the order in which the calculation of a Viuhka score is performed. Inside a segment the calculation advances layer by layer (first we calculate the first layer, then the second one, etc.). Within each layer the calculation advances in time order by calculating information for the next main note (the current note). While calculating the current note, the system first determines the absolute start time and the delta-time. Then it chooses the current bpf (i.e. the Viuhka bpf giving the midic-value for the current note). After this the ornaments and synthesis information are calculated."
+
+:bodytext "Expressions using Viuhka variables must follow this order in order to work properly. For instance an expression (given to an input that calculates ornaments) like: (if (> mydur 50) 'g 'n) is correct as mydur (explained below) is calculated before the ornaments. The following expression (given to an input that calculates delta-times), by contrast, is not coherent as delta-times are calculated before mypitch (also explained below): (if (> mypitch 60) 10 20).":bodytext "Currently Viuhka contains the following Viuhka variables:":bodytext "gtime    the current global time in seconds."
+:bodytext "mydur    the duration of the current note in seconds." :bodytext "mydtime  the delta-time of the current note in seconds.":bodytext "mypitch  the pitch of the current note in midis." 
+:bodytext "mychord  the current chord-midis list read from the Viuhka bpfs at the current time.":bodytext "mycsndparams	the current synthesis parameters."
+:bodytext "myindex  the current Viuhka bpf index"
+
+:bodytext "viuhka-bpfs  all Viuhka bpfs"
+:bodytext "mybpf  the current Viuhka bpf"
+:bodytext "myother-bpfs the current Viuhka bpfs except the current one"
+:bodytext "mytime-till-next-bp  time in seconds to the next bp of the current bpf"
+

@@ -1,0 +1,10 @@
+:subtitle "3.0 - Contents
+
+
+"
+
+:bodytext "This part of the library is dedicated to some tools for generation of musical contents (mostly pitches and rhythm), especially through constraint engines. Most of these functions and rules are conceived  according to morphological criterias, and in a perspective of dynamic control, inspired by real-time CAC programs like MaxMSP."
+
+:bodytext "N.B. : These tools are partly based on concepts and tools developed as part of the libraries JBS-CMI, JBS-Profile and JBS-Constraints by Jacopo Baboni Schilingi. If needed, please refer to his tutorials for further details : 
+http://www.baboni-schilingi.com/index.php?/recherches/software/
+"

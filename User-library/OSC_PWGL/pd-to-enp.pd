@@ -1,0 +1,12 @@
+#N canvas 8 301 528 364 10;
+#X obj 126 249 sendOSC;
+#X msg 237 201 disconnect;
+#X msg 236 172 connect localhost 9013;
+#X msg 277 114 send right;
+#X msg 170 68 send left;
+#X msg 67 115 send home;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;

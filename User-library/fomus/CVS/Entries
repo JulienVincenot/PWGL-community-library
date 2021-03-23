@@ -1,0 +1,38 @@
+D/doc////
+D/test////
+D/fomus////
+/COPYING/2.0/Mon May 29 16:37:56 2006//
+/README/2.0/Mon May 29 16:37:56 2006//
+/TODO/2.0/Mon May 29 16:37:56 2006//
+/accidentals.lisp/2.0/Mon May 29 16:37:56 2006//
+/backend_cmn.lisp/2.0/Mon May 29 16:37:56 2006//
+/backend_mid.lisp/2.0/Mon May 29 16:37:56 2006//
+/backend_xml.lisp/2.0/Mon May 29 16:37:56 2006//
+/backends.lisp/2.0/Mon May 29 16:37:56 2006//
+/beams.lisp/2.0/Mon May 29 16:37:56 2006//
+/classes.lisp/2.0/Mon May 29 16:37:56 2006//
+/data.lisp/2.0/Mon May 29 16:37:56 2006//
+/deps.lisp/2.0/Mon May 29 16:37:56 2006//
+/final.lisp/2.0/Mon May 29 16:37:56 2006//
+/fomus.asd/2.0/Mon May 29 16:37:56 2006//
+/install.sh/2.0/Mon May 29 16:37:56 2006//
+/interface.lisp/2.0/Mon May 29 16:37:56 2006//
+/main.lisp/2.0/Mon May 29 16:37:56 2006//
+/marks.lisp/2.0/Mon May 29 16:37:56 2006//
+/misc.lisp/2.0/Mon May 29 16:37:56 2006//
+/other.lisp/2.0/Mon May 29 16:37:56 2006//
+/ottavas.lisp/2.0/Mon May 29 16:37:56 2006//
+/package.lisp/2.0/Mon May 29 16:37:56 2006//
+/parts.lisp/2.0/Mon May 29 16:37:56 2006//
+/split.lisp/2.0/Mon May 29 16:37:56 2006//
+/staves.lisp/2.0/Mon May 29 16:37:57 2006//
+/voices.lisp/2.0/Mon May 29 16:37:57 2006//
+/CHANGELOG/2.1/Sun Jun 11 09:07:02 2006//
+/backend_ly.lisp/2.1/Sun Jun 11 09:07:02 2006//
+/examples.lisp/2.1/Sun Jun 11 09:07:03 2006//
+/version.lisp/2.1/Sun Jun 11 09:07:03 2006//
+/postproc.lisp/2.0/Sun Jun 11 09:22:16 2006//
+/splitrules.lisp/2.0/Sun Jun 11 09:27:42 2006//
+/quantize.lisp/2.0/Sun Jun 11 09:29:04 2006//
+/load.lisp/2.0/Sun Jun 11 09:29:29 2006//
+/util.lisp/2.0/Sun Jun 11 09:29:29 2006//

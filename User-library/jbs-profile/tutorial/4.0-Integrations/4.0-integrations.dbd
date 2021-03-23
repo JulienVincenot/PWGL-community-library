@@ -1,0 +1,15 @@
+:subtitle "Integrations"
+:bodytext "All the functions grouped here can be applied to any kind of parameters that can be represented with numbers."
+
+:bodytext "This chapter is dedicated to the concept of arithmetical integration. 
+
+As an extension of the arithmetical concept, this part of the library considers the integration as a possible function to make more complex a given profile."
+
+
+:bodytext "The action of making a profile more complex appears here in two ways. The first is given by the augmentation of elements constituting the integrated result from the original one.
+Secondly, the integration is a way of adding specificities inside a curve, keeping as long as possible the global shape.
+"
+
+:bodytext "All these functions are recursive. In this case recursion means which level of the integration you want to get.
+
+If you put 1 you just obtain the first integration. If you put 2, you will obtain the integration of the first one; with 3, the integration of the integration of the first one, and so on."

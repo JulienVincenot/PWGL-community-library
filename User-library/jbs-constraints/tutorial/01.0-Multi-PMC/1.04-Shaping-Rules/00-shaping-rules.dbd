@@ -1,0 +1,13 @@
+:subtitle "Shaping-Rules Menu"
+:bodytext "The following rules have been conceived to control and generate shapes. The concept of shape is at the same time based on BPF representations and on melodic profile representations. In a sense, this part of the library concerns geometrical disposition of a sequence of elements.
+
+Two particular functions (DIRECT-ANALYSIS and ENERGY-PROFILE) belong to the study of morphology. It is possible that in future these two functions' name and location will change. If it happens, I will keep these functions in the code, in order to make your patches run, but they'll probably disappear from this menu. Please look at the Morphologie library for more details."
+
+
+
+
+
+
+
+
+

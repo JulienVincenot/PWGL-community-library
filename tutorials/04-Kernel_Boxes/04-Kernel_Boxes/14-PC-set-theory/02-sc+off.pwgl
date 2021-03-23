@@ -1,0 +1,12 @@
+(IN-PACKAGE :CCL)
+;; this patch was saved with PWGL version 1.0 beta RC 17 (0.9.17-147)
+(ASSERT-PATCH-SAVED-VERSION-NOT-NEWER-THAN (QUOTE ((0 9 17) 147)))
+(LET ((WIN (MAKE-INSTANCE (QUOTE PWGL-PW-WINDOW) :PWGL-SUBVIEWS (LIST (MAKE-INSTANCE (QUOTE PWGL-BOX) :PWGL-SUBVIEWS (LIST (MAKE-INSTANCE (QUOTE PWGL-VALUE-BOX-SUBVIEW) :BOX-STRING "midis" :CURVAL (LIST 60 61) :VALUE-STRING "(60 61)")) :X 0.7732481116153518D0 :Y 0.6904924608739094D0 :W 0.26 :H 0.1 :BOX-STRING "sc+off" :PWGL-OUTPUTS (LIST (MAKE-INSTANCE (QUOTE PWGL-OUTPUT))) :BOX-LAYOUT (MAKE-INSTANCE (QUOTE PWGL-BOX-LAYOUT) :GROUPING-LIST (LIST 1) :ORIG-GROUPING-LIST (LIST 1) :BORDER 0.012) :PW-FUNCTION (QUOTE SC+OFF))) :X 5 :Y 5 :SCALEFX 0.7733611 :SCALEFY 0.7733611 :TAGS (LIST "box-tutorial/sc+off") :WINDOW-DOCUMENTATION "SC+OFF   (MIDIS):
+returns a list containing the SC-name and the offset
+(i.e. the transposition relative to the prime form of the SC)
+of midis (a list of midi-values),
+midis can also be a list of lists of midis in which case SC+off
+returns the SCs with offsets for each midi-value sublist
+
+
+" :X -1754 :Y 22 :WIDTH 730 :HEIGHT 530))) (WINDOW-SELECT WIN) WIN)

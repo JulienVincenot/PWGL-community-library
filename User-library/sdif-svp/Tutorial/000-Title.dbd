@@ -1,0 +1,9 @@
+:title-page
+:elements
+	#.(let ((lib (find-pwgl-library :sdif-svp)))  ;;:sdif-svp  :ksquant
+            (list :title (pwgl-library-name lib)
+                  :subtitle (pwgl-library-description lib)
+                  :version (pwgl-library-version lib)
+                  :authors (pwgl-library-author lib)
+                  :logo (probe-file (pwgl-location (pwgl-library-name lib) "logo.png"))
+                  :copyright (pwgl-library-author lib)))

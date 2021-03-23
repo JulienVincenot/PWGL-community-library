@@ -1,0 +1,32 @@
+
+(IN-PACKAGE :CCL)
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::VIOLA) (TYPE T) (SYSTEM::EXPRESSION STACCATO))
+  #P"43 Solo strings/Solo viola/nki/VA-B_stac-1.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::VIOLA) (TYPE T) (SYSTEM::EXPRESSION TRILLO))
+  #P"43 Solo strings/Solo viola/nki/VA_tr_HS.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::VIOLA) (TYPE T) (SYSTEM::EXPRESSION TREMOLO))
+  #P"43 Solo strings/Solo viola/nki/VA_trem_sus.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::VIOLA)
+   (TYPE T)
+   (SYSTEM::EXPRESSION PIZZICATO))
+  #P"43 Solo strings/Solo viola/nki/VA-B_pz-1.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::VIOLA)
+   (TYPE T)
+   (SYSTEM::EXPRESSION COL-LEGNO))
+  #P"43 Solo strings/Solo viola/nki/VA_legno-1.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::VIOLA)
+   (TYPE T)
+   (SYSTEM::EXPRESSION BARTOK-PIZZICATO))
+  #P"43 Solo strings/Solo viola/nki/VA_pzbtk-1.nki")

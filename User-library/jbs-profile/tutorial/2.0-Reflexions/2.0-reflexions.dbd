@@ -1,0 +1,6 @@
+:subtitle "Reflexions"
+:bodytext "All the functions grouped here can be applied to any kind of parameters that can be represented with numbers."
+
+:bodytext "This part of the jbs-profile library is dedicated to the concept of geometric reflexion. The main idea is to create a sort of simulation of the geometrical reflexion around one or two axes. 
+
+As we have already seen in the first part of this library, the fact that a lot of functions here are based on pitches, that does not mean at all that these functions are limited to the pitch fields."

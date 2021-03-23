@@ -1,0 +1,8 @@
+
+(IN-PACKAGE :CCL)
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::FRENCH-HORN)
+   (TYPE T)
+   (SYSTEM::EXPRESSION CON-SORDINO))
+  #P"2. Brass/3. Trombones/Tnr Tbone Plr1 Mute.nki")

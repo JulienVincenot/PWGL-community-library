@@ -1,0 +1,38 @@
+"      
+                                                     About ksquant
+      
+      The ksquant package (called so for simplicity...) provides means for
+      working with rhythmical structures without loosing the connection to
+      the other parameters like pitch information, expressions etc...
+      
+      To ease operations on these structures, it introduces a new score
+      format (called simple-format) that is derived from the
+      ENP-score-notation format (which is used e.g. by the score-editor).
+      
+      The main difference between those formats is that the simple-format is
+      duration based. Instead of using a tree-like structure like in ENP,
+      events start at a certain time point and their duration is specified
+      by the time that passes until the next event occurs. The ENP format is
+      definitely more expressive when it comes to the exact description of
+      rhythmical structures - the simple-format can be seen as a
+      possible reduction.
+      
+      To this purpose, its provides mainly two conversion functions:
+      
+        * score2simple
+        * simple2score
+
+      A perfect conversion using simple2score is not always possible.
+      This is where quantization comes in.
+      
+      Then, there are some operations using the simple-format:
+      
+        * simple-shift
+        * simple-scale
+        * simple-transpose
+        * ...      
+      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+      Please direct any comments etc... to either:
+        * PWGL mailing list (http://www2.siba.fi/PWGL/support.html)
+        * kilian.sprotte at gmail.com
+"

@@ -1,0 +1,10 @@
+:title "notes"
+
+:bodytext "To test this lib you can open the patch pd-OSC.pd with pd-extended."
+
+:link "http://puredata.info/downloads"
+:protocol :http
+
+:bodytext "There are some problems yet with receiving OSC messages. (See 3-server.pwgl). PLEASE help (write me) if you can... I'm not getting where the errors occurs."
+
+:bodytext "josé henrique padovani (zepadovani [at] gmail [dot] com)."

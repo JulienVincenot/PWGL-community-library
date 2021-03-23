@@ -1,0 +1,13 @@
+:title "Circ-repeat-functions"
+
+:bodytext "Besides ordinary Lisp expressions a circ-list can also contain special Lisp functions that affect dynamically the length (and/or the content) of the circ-list. These special functions, circ-repeat-functions, all return lists that are flattened each time the circ-list is 'recycled' (i.e. when reading the first element of the circ-list). For instance, we can define a circ-list that (when read continuously) shrinks or expands its length. The following circ-list (1 (rl 3 6 'g) 2) produces sequences like: 1 g g g 2 1 g g g g g 2 1 g g g 2, etc. We use here the special function rl that returns variable amount of the constant g. rl is defined as follows:rl	cntl cnth elemrl returns a list (containing elem) whose length varies randomly between cntl and cnth."
+
+:bodytext "Circ-repeat-functions affecting dynamically the circ-list are stored in the global variable *circ-repeat-fns*. 
+Besides rl, *circ-repeat-fns* contains currently the following functions:"
+
+:bodytext "rep-rn	n low highreturns n repetitions of a random number. The arguments low and high define the lower and upper limits of this number."
+
+:bodytext "rep-det  n xreturns n repetitions of x."
+
+:bodytext "rn-rn	cntl cnth low highreturns random values in the range low and high. The length of the result varies randomly between cntl and cnth."
+:bodytext "*circ-repeat-fns* contains also the standard PWGL function permut-random that reorders its argument (a list) randomly."

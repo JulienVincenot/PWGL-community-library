@@ -1,0 +1,18 @@
+
+                     :title "Info"
+:table2 :columns (0.2 0.8)
+:table-elements
+#.(let ((lib (ccl::find-pwgl-library "by-cycle")))
+    (list "" ""
+          "Author & maintainer" (ccl::pwgl-library-author lib)
+          "Note" (ccl::pwgl-library-maintainer lib)
+          "Version" (ccl::pwgl-library-version lib)
+          "Image credit" (ccl::pwgl-library-licence lib)
+          "Description" (ccl::pwgl-library-description lib)
+          "Long description" (ccl::pwgl-library-long-description lib)
+          ;"copyright" (ccl::pwgl-library-author lib) 
+	))
+
+:bodytext "
+"
+:link "http://by.cmsc.pagesperso-orange.fr/"

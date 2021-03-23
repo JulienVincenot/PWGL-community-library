@@ -1,0 +1,9 @@
+:title "Circ-lists"
+
+:bodytext "Several inputs for the 'v-params' and 'i-params' boxes accept as arguments circ-lists. Circ-lists are like ordinary Lisp lists except that the items are read in a circular fashion (i.e. after reading the last item, the next item is accessed from the beginning of the list). A circ-list can either contain constants (numbers, symbols, etc.) that simply return themselves, special variables that are evaluated when they are being read, break-point functions, or Lisp expressions."
+
+:bodytext "A circ-list containing constants, like (1 2 a 4), returns (when read continuously) the sequence 1 2 a 4 1 2 a 4 1 2 a, etc., infinitely."
+
+:bodytext "A circ-list containing Viuhka variables, like (1 gtime), (gtime is defined as a Viuhka variable returning the global absolute time), returns the sequence 1 <value of gtime> 1 <value of gtime> 1 <value of gtime>, etc., where <value of gtime> is the current value of the Viuhka variable gtime."
+
+:bodytext "A circ-list containing Lisp expressions, like ((if (> mydur 25) 'g 'n) 66 (random 10)), returns sequences like: g 66 5 n 66 7 g 66 9, etc. Here the first Lisp expression (if (> mydur 25) 'g 'n) returns the constant g or n depending on the value of the Viuhka variable mydur. 66 is a constant returning always itself. Finally, the expression (random 10) returns a random number between 0 and 9."

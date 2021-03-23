@@ -1,0 +1,12 @@
+
+(IN-PACKAGE :CCL)
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::PICCOLO)
+   (TYPE T)
+   (SYSTEM::EXPRESSION STACCATO))
+  #P"11 Piccolo flute/nki/PFL_stac_basic.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::PICCOLO) (TYPE T) (SYSTEM::EXPRESSION SFZ))
+  #P"11 Piccolo flute/nki/PFL_mV_sfz_basic.nki")

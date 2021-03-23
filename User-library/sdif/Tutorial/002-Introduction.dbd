@@ -1,0 +1,37 @@
+:title "Introduction"
+
+:bodytext "SDIF is a small and simple PWGL library that provides the users with a box interface to the tools provided by the official SDIF distribution. It allows us to read in a lispy way the data contained by .sdif files. For SDIF documentation and any further information, see:"
+
+:link "http://sdif.sourceforge.net/"
+:protocol :http
+
+:bodytext "The SDIF test files (distributed inside the 'SDIF-Tests' folder) are from CNMAT:"
+
+:link "http://archive.cnmat.berkeley.edu/SDIF/alpha/SDIF-Files.tar.gz"
+:protocol :http
+
+:bodytext "The SDIF library itself is implemented using the SHELL library. See the SHELL documentation (Tutorial/Special-Boxes/Shell) for further information."
+
+;:link #.(namestring (merge-pathnames #p"06-Tutorial/03-Special-Boxes/20-Shell" (ccl::pwgl-location :tutorial)))
+;:protocol :file
+
+:section-start "Quick Reference"
+
+:section-start "Box"
+
+:items
+:list-style :french
+- "+, to add an option."
+- "-, to remove THE LAST option."
+- "h, to read the man entry."
+
+:section-end
+
+:section-start "Input Boxes ('options')"
+
+:items
+:list-style :french
+- "ARROW UP/DOWN, move the selected input-box ('option') forward or backward."
+- "DELETE, remove an input-box ('option')."
+:section-end
+:section-end

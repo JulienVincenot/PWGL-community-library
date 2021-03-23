@@ -1,0 +1,1 @@
+:bodytext "In the section 'Function' you find some tools for creating and working with mathematical functions like y=f(x). You can define them with objects like [make-num-fun], [linear-fun], [power-fun], [lagrange-fun]. For converting them into a list of numbers, use [sample-fun]."

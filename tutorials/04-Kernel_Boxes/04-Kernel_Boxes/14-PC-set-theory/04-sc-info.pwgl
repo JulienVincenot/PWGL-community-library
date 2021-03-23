@@ -1,0 +1,23 @@
+(IN-PACKAGE :CCL)
+;; this patch was saved with PWGL version 1.0 beta RC 17 (0.9.17-147)
+(ASSERT-PATCH-SAVED-VERSION-NOT-NEWER-THAN (QUOTE ((0 9 17) 147)))
+(LET ((WIN (MAKE-INSTANCE (QUOTE PWGL-PW-WINDOW) :PWGL-SUBVIEWS (LIST (MAKE-INSTANCE (QUOTE PWGL-BOX) :PWGL-SUBVIEWS (LIST (MAKE-INSTANCE (QUOTE PWGL-MENUBOX-SUBVIEW) :BOX-STRING "function" :MINVAL 0 :MAXVAL 3 :MENU-LIST :SC-FUNCTION-LIST :MENU-LIST-STRING "prime") (MAKE-INSTANCE (QUOTE PWGL-HIERARCHICAL-MENUBOX-SUBVIEW) :BOX-STRING "sc-name" :MINVAL 0 :MAXVAL 18 :MENU-LIST :SC-NAME-LIST :MENU-LIST-STRING "3-1" :CURVAL2 3 :MENU-TITLES :SC-NAME-TITLE-LIST :MAXVAL2 12)) :X 0.5818756692757663D0 :Y 0.7551453130156614D0 :W 0.78 :H 0.1 :BOX-STRING "sc-info" :PWGL-OUTPUTS (LIST (MAKE-INSTANCE (QUOTE PWGL-OUTPUT))) :BOX-LAYOUT (MAKE-INSTANCE (QUOTE PWGL-BOX-LAYOUT) :GROUPING-LIST (LIST 2) :ORIG-GROUPING-LIST (LIST 2) :X-PROPORTIONS (LIST (LIST 1.7 1)) :BORDER 0.012) :PW-FUNCTION (QUOTE SC-INFO))) :X 5 :Y 5 :SCALEFX 0.7733611 :SCALEFY 0.7733611 :TAGS (LIST "box-tutorial/sc-info") :WINDOW-DOCUMENTATION "SC-INFO   (FUNCTION SC-NAME):
+allows to access information of a given SC (second input, SC-name).
+The type of information is defined by the first input (function).
+This input is a menu-box and contains the following menu-items:
+
+CARD          returns the cardinality of SC
+PRIME         returns the prime form of SC
+ICV           returns the interval-class vector of SC
+MEMBER-SETS   returns a list of the member-sets of SC
+             (i.e. all 12 transpositions of the prime form)
+COMPLEMENT-PCs   returns a list of PCs not included in the prime form of SC
+
+The second input is a hierarchical menu-box, where the user selects
+the SC name. When the input is scrolled, it displays all SC-names
+of a given cardinality. The cardinality can be changed by
+ dragging the mini-scroll view in the right-most part of the input.
+The input accepts also a list of SC-names. In this case
+the SC-info box returns the requested information for all given SC-names.
+
+" :X -1754 :Y 22 :WIDTH 730 :HEIGHT 530))) (WINDOW-SELECT WIN) WIN)

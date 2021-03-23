@@ -1,0 +1,207 @@
+// !$*UTF8*$!
+{
+	0F5C28A9047E732E006640BC /* Project object */ = {
+		activeBuildConfigurationName = Deployment;
+		activeTarget = F446F771071AF3E800117647 /* all */;
+		codeSenseManager = 256F6F3D0B6632C0004E1BA5 /* Code sense */;
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					610.58349609375,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					464,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					200,
+					284,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 240762391;
+			PBXWorkspaceStateSaveDate = 240762391;
+		};
+		perUserProjectItems = {
+			252E47AA0E59BFF800EB881E /* PBXTextBookmark */ = 252E47AA0E59BFF800EB881E /* PBXTextBookmark */;
+			2572010A0B7921FA00D38A9C /* PBXTextBookmark */ = 2572010A0B7921FA00D38A9C /* PBXTextBookmark */;
+			2572010C0B7921FA00D38A9C /* PBXTextBookmark */ = 2572010C0B7921FA00D38A9C /* PBXTextBookmark */;
+			25FB755C0E576F63004C9660 /* PBXTextBookmark */ = 25FB755C0E576F63004C9660 /* PBXTextBookmark */;
+			25FB755D0E576F63004C9660 /* PBXTextBookmark */ = 25FB755D0E576F63004C9660 /* PBXTextBookmark */;
+			25FB755F0E5773B2004C9660 /* PBXTextBookmark */ = 25FB755F0E5773B2004C9660 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 256F6F3C0B6632C0004E1BA5 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	252E47AA0E59BFF800EB881E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 252E47AB0E59BFF800EB881E /* ICAApplication.h */;
+		name = "ICAApplication.h: 1920";
+		rLen = 28;
+		rLoc = 87585;
+		rType = 0;
+		vrLen = 1382;
+		vrLoc = 86868;
+	};
+	252E47AB0E59BFF800EB881E /* ICAApplication.h */ = {
+		isa = PBXFileReference;
+		name = ICAApplication.h;
+		path = /System/Library/Frameworks/Carbon.framework/Frameworks/ImageCapture.framework/Headers/ICAApplication.h;
+		sourceTree = "<absolute>";
+	};
+	256F6F3C0B6632C0004E1BA5 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+		scmType = "";
+	};
+	256F6F3D0B6632C0004E1BA5 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	2572010A0B7921FA00D38A9C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F70D0BE50496241101664058 /* SdifCheck.c */;
+		name = "SdifCheck.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1120;
+		vrLoc = 4039;
+	};
+	2572010C0B7921FA00D38A9C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F70D0BE50496241101664058 /* SdifCheck.c */;
+		name = "SdifCheck.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1120;
+		vrLoc = 4039;
+	};
+	25FB755C0E576F63004C9660 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F70D0C770496243D01664058 /* sdif.h */;
+		name = "sdif.h: 283";
+		rLen = 13;
+		rLoc = 10726;
+		rType = 0;
+		vrLen = 625;
+		vrLoc = 10434;
+	};
+	25FB755D0E576F63004C9660 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F70D0C770496243D01664058 /* sdif.h */;
+		name = "sdif.h: 283";
+		rLen = 13;
+		rLoc = 10726;
+		rType = 0;
+		vrLen = 625;
+		vrLoc = 10434;
+	};
+	25FB755F0E5773B2004C9660 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 25FB75600E5773B2004C9660 /* ICAApplication.h */;
+		name = "ICAApplication.h: 1920";
+		rLen = 28;
+		rLoc = 87585;
+		rType = 0;
+		vrLen = 1425;
+		vrLoc = 86774;
+	};
+	25FB75600E5773B2004C9660 /* ICAApplication.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = ICAApplication.h;
+		path = /System/Library/Frameworks/Carbon.framework/Frameworks/ImageCapture.framework/Headers/ICAApplication.h;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavFolds = "{\n    c =     (\n                {\n            l = \"ICAObject object\";\n            r = \"{50271, 20}\";\n            s = 1;\n        },\n                {\n            l = \"ICAObject object\";\n            r = \"{53399, 20}\";\n            s = 1;\n        },\n                {\n            l = \"OSType thumbnailFormat\";\n            r = \"{53454, 26}\";\n            s = 1;\n        },\n                {\n            l = \"UInt32 flags\";\n            r = \"{62695, 16}\";\n            s = 1;\n        },\n                {\n            l = \"Fixed rotationAngle\";\n            r = \"{62744, 23}\";\n            s = 1;\n        },\n                {\n            l = \"ICAObject object\";\n            r = \"{62800, 20}\";\n            s = 1;\n        },\n                {\n            l = \"OSType fileCreator\";\n            r = \"{62853, 22}\";\n            s = 1;\n        },\n                {\n            l = \"FSRef * dirFSRef\";\n            r = \"{62908, 20}\";\n            s = 1;\n        },\n                {\n            l = \"OSType fileType\";\n            r = \"{62961, 19}\";\n            s = 1;\n        },\n                {\n            l = \"FSRef * fileFSRef\";\n            r = \"{65550, 21}\";\n            s = 1;\n        },\n                {\n            l = \"UInt32 flags\";\n            r = \"{65603, 16}\";\n            s = 1;\n        },\n                {\n            l = \"ICAObject parentObject\";\n            r = \"{65651, 26}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 122553}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {3648, 38066}}";
+			sepNavSelRange = "{87348, 28}";
+			sepNavVisRange = "{86631, 1382}";
+		};
+	};
+	F446F771071AF3E800117647 /* all */ = {
+		activeExec = 0;
+	};
+	F4A4100C079BCB8D00ADEFEF /* SDIF */ = {
+		activeExec = 0;
+	};
+	F4A4105B079BCB8E00ADEFEF /* Install */ = {
+		activeExec = 0;
+	};
+	F4A4105D079BCB8E00ADEFEF /* SDIF lib static */ = {
+		activeExec = 0;
+	};
+	F70D0BE50496241101664058 /* SdifCheck.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {662, 2408}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 1873}, {662, 535}}";
+		};
+	};
+	F70D0BEF0496241101664058 /* SdifFile.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1196, 19334}}";
+			sepNavSelRange = "{12679, 134}";
+			sepNavVisRect = "{{0, 4694}, {987, 203}}";
+		};
+	};
+	F70D0C770496243D01664058 /* sdif.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {642, 45584}}";
+			sepNavSelRange = "{10726, 13}";
+			sepNavVisRange = "{10434, 625}";
+			sepNavVisRect = "{{0, 16418}, {740, 180}}";
+			sepNavWindowFrame = "{{61, 101}, {994, 730}}";
+		};
+	};
+}

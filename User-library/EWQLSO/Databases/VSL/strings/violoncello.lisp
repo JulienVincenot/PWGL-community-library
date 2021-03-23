@@ -1,0 +1,32 @@
+
+(IN-PACKAGE :CCL)
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::VIOLONCELLO)
+   (TYPE T)
+   (SYSTEM::EXPRESSION STACCATO))
+  #P"43 Solo strings/Solo cello/nki/VC-B_stac-1.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::VIOLONCELLO)
+   (TYPE T)
+   (SYSTEM::EXPRESSION TREMOLO))
+  #P"43 Solo strings/Solo cello/nki/VC-B_trem_sus.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::VIOLONCELLO)
+   (TYPE T)
+   (SYSTEM::EXPRESSION PIZZICATO))
+  #P"43 Solo strings/Solo cello/nki/VC_pz-secco-1.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::VIOLONCELLO)
+   (TYPE T)
+   (SYSTEM::EXPRESSION COL-LEGNO))
+  #P"43 Solo strings/Solo cello/nki/VC_legno-1.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::VIOLONCELLO)
+   (TYPE T)
+   (SYSTEM::EXPRESSION BARTOK-PIZZICATO))
+  #P"43 Solo strings/Solo cello/nki/VC_pzbtk-1.nki")

@@ -1,0 +1,25 @@
+:subtitle "JBS-Constraints by Jacopo Baboni Schilingi (2009)"
+
+:bodytext "This documentation has been written by Jacopo Baboni Schilingi and Julien Vincenot."
+
+:bodytext "This is a library to control the Multi-PMC and the Multi-Score-PMC functions of PWGL."
+:items
+- "Multi-PMC"
+- "Multi-Score-PMC"
+- "Utils"
+- "Examples"
+
+:bodytext "This library is the result of many years of work with Mikael Laurson, Mika Kuuskankare and Kilian Sprotte."
+"All the functions or methods I formalized here are based on the syntax of Constraints done by Mikael Laurson."
+
+"Please let me avoid any misunderstanding : this library is called JBS-Constraints exactly because it is my own way of using Mikael Laurson syntax to generate rules. That does not mean at all that the method I suggest is the only one. I developed this method because of my own hyper-systemic theory approach and because practice showed me that this way is the best for ME. Study also the tutorial of Mikael Laurson concerning constraints, because it might happen that my method is not the one you are looking for."
+
+:bodytext ""
+
+:bodytext "Please, if you find some bugs or anomalies, write directly to me at jbs@baboni-schilingi.com."
+
+:bodytext ""
+
+:bodytext ""
+
+:subtitle "ATTENTION: IN ORDER TO BE ABLE TO SEE ALL THE EXAMPLES, PLEASE LOAD ALSO THE KSQUANT LIBRARY BY KILIAN SPROTTE."

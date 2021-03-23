@@ -1,0 +1,7 @@
+:subtitle "Interpolation."
+
+:bodytext "The functions of this section are dedicated to the interpolation."
+
+:bodytext "ATTENTION : By interpolation I do NOT mean the mathematical or arithmetical encoding way of making interpolations. Here I use some techniques that are not mathematically exact. I have chosen these interpolators because from a musical point of view they are very convincing."
+
+:bodytext "Obviously that an interpolation is a method of constructing new data points within the range of a discrete set of known data points. In this sense interpolation is a method to calculate values between the ones we already know. But for me the most important aspect is how to make interpolations giving the impression, as much as possible, that from a starting point to an ending point there is no discontinuity. In other words, for me interpolation is a continuous passage from a starting point to an ending one and this continuity depends on many perceptual aspects. That is why I developed some interpolations not using standard linear or polynomial functions, but using intuitive drawn curves."

@@ -1,0 +1,18 @@
+"
+      Please note that this release is really a beta release - the library is not
+      finished yet.
+      
+      You can always find the version of ksquant in the file ksquant.asd.
+      
+      I hope, however, that this package could already be useful.
+      
+      For a future release, I hope to have a better tutorial and also
+      documentation for the boxes.      
+
+      Any questions, comments on bugs, inconsistencies, possible improvements,
+      and also your success stories :) are highly welcome.
+     
+           * PWGL mailing list (http://www2.siba.fi/PWGL/support.html)
+           * kilian.sprotte at gmail.com
+     
+"

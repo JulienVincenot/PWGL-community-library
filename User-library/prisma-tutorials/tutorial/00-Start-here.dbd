@@ -1,0 +1,35 @@
+:subtitle "PRISMA-Tutorials"
+
+:bodytext "This documentation has been written by Baboni-Schilingi, Ciceri, Vincenot with Davidsmooth and John"
+
+:bodytext "This is a collection dedicated to how to use standard boxes in PWGL software."
+:items
+- "Abstraction"
+- "Data"
+- "Utilities"
+- "Arithmetic"
+- "Control"
+- "Conversion"
+- "Function"
+- "Lisp"
+- "List"
+- "Num series"
+- "Sets/Combinations"
+- "Editors"
+- "Constraints"
+- "Pc-set-theory"
+
+:bodytext ""
+
+:bodytext ""
+
+:bodytext ""
+
+:bodytext "gnagna gna gna"
+
+:bodytext "In future, you can freely download the always last upgraded version on my web site:"
+:link "www.baboni-schilingi.com or www.carlociceri.com"
+:bodytext" Please, if you find some bugs or anomalies, write directly to me at:"
+:link "jbs@baboni-schilingi.com or info@carlociceri.com or julien.vincenot@orange.fr"
+
+:figure "00-0-Titolo.jpg"

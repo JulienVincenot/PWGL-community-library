@@ -1,0 +1,14 @@
+
+(IN-PACKAGE :CCL)
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::BASS-CLARINET)
+   (TYPE T)
+   (SYSTEM::EXPRESSION STACCATO))
+  #P"19 Bass clarinet/nki/BKL_stac_basic.nki")
+
+(DEFMETHOD SYSTEM::NKI
+  ((SYSTEM::SELF SYSTEM::BASS-CLARINET)
+   (TYPE T)
+   (SYSTEM::EXPRESSION SFZ))
+  #P"19 Bass clarinet/nki/BKL_sfz_basic.nki")

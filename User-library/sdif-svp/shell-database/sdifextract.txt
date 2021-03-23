@@ -1,0 +1,19 @@
+	-T <sdif types file>  specify file with additional sdif types
+	-v		      be verbose
+	-q		      be quiet
+	-h		      short help
+	-help		      long help, prints sdif types if -T given,
+			      format details and remarks.
+	-sdif                 output data in SDIF (default)
+	-bpf                  output data as ASCII multi-bpf
+	-format               output data as ASCII .format file
+	-time                 output only frame-times as ASCII
+	-data                 output data only (without frame-times) as ASCII
+	-t <begin>[-<end>|+<delta>]  select time range <begin> to <end> or 
+                             <begin>-<delta> to <begin>+<delta>
+	-s <stream id>	      select stream to extract
+	-f <frame signature>  select frame  to extract
+	-m <matrix signature> select matrix to extract
+	-r <row>	      select row    to extract
+	-c <column>	      select column to extract
+

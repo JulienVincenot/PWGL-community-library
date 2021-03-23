@@ -1,0 +1,8 @@
+This little library implements the Open Sound Control as specified
+by http://www.cnmat.berkeley.edu/OpenSoundControl/.
+
+The latest version should be available at http://kiliansprotte.de/lisp/.
+
+Any comments, suggestions, bug reports etc. are welcome.
+
+Kilian Sprotte <kilian.sprotte@gmail.com>
