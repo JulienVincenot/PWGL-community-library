@@ -5,4 +5,4 @@ This is dedicated to salvage all of known user-libraries created by composers an
 
 # Licence
 
-The status of this project is not clear yet considering it gathers code base from several different programmers. If you see sources on this repo that you wrote but you wish didn't appear hear, please raise an issue here or send an email to mail@julienvincenot.com, and we'll take your sources down immediately.
+The status of this project is not clear yet considering it gathers code base from several different programmers who don't necessary know each other. If you see sources on this repo that you wrote but you wish didn't appear hear, please raise an issue here or send an email to mail@julienvincenot.com, and we'll take your sources down immediately.
