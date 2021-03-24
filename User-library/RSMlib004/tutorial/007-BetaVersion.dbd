@@ -1,0 +1,14 @@
+:section-style :empty
+:section-start "Beta Version"
+:bodytext
+"Please, note that this release is a beta version of the RSMlib - the library is not finished yet."
+"I hope, however, that this package could already be useful for analysts and composers. Many of these functions have already been used with satisfactory results in the composition of my latest music."
+
+:bodytext"Any questions, comments, bugs, inconsistencies, possible improvements, and also your success stories are highly welcome:"
+
+
+:bodytext
+"jomoreno at siba.fi"
+
+
+:section-end

@@ -1,0 +1,12 @@
+:section-style :empty
+:section-start "Acknowledgements"
+
+:bodytext
+
+"I would like to thank Andrew Bentley, Tuukka Ilomaki, Marcus Castren, Atte Tenkanen, Orjan Sandred, Clarence Barlow, Javier Darias, Enrique Sanz Burguete and Tuire Kuusi for all the ideas, documentation and interesting comments shared in a very generous way." 
+:bodytext
+"Thanks to Mika Kuuskankare and Mikael Laurson for helping me with the code and for their valuable feedback." 
+:bodytext
+"Finally, thanks to Sibelius Akatemia and the PWGL-team for supporting my work."
+
+:section-end

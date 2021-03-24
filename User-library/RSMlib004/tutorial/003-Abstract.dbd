@@ -1,0 +1,7 @@
+:section-style :empty
+:section-start "Abstract"
+:bodytext
+"We will present the different ways of extracting rhythmic information out of a given rhythmic design according to several theories and the different similarity measures employed by preceding research. In addition, some similarity measures will be presented for first time in a musical context and the weighted version of some of them. Finally, the weighting average box usage example will show a simple way of getting precise information about the rhythmic relations between given rhythmic designs."
+:bodytext"The possibility of using these tools not only as analyses methods but also as rhythmic generators is presented, giving to composers new tools for generating their rhythmic material."
+
+:section-end

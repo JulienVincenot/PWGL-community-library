@@ -1,0 +1,9 @@
+k-lib version 1.0
+PWGL library
+
+by Yann Ics yann@mus-ics.net, 2014-2015
+
+Utils for morphological analysis.
+Supplementary tools even complementary in the continuity of the fv-morphologie library written by Frédéric Voisin (http://www.fredvoisin.com/spip.php?article113).
+
+Dependencies: ompw, by-cycle, jbs-cmi, fv-morphologie

@@ -1,0 +1,9 @@
+:section-style :empty
+:section-start "Future Developments"
+
+:bodytext
+
+"In future versions of this library there are plans for implementing:"
+:items- "A better way of handling the representations of rhythmic designs."- "A wider set of similarity measures and feature extractors."- "Different weighting functions."- "An implementation of the rhythmic generators, generating rhythmic designs according to a given distance and of a given similarity measure."
+
+:section-end

@@ -1,0 +1,47 @@
+
+:title "setting the path to the Tutorial sounds"
+
+
+:bodytext
+"
+
+Inside the Tutorial folder of the ht-pwgl-as library
+you find a folder with example soundfiles, used
+in the tutorial patches. The folder is called 99-ht-pwgl-as-soundfiles
+"
+
+:figure "soundfiles-folder.pdf"
+:caption "folder with example sound files"
+
+
+:bodytext
+"
+Choose in the PWGL application the menu PWGL and select
+Sample Paths...
+
+
+"
+
+:figure "sample-path.pdf"
+
+:bodytext
+"
+click on Add Path and search for the tutorial sounds and hit OK.
+
+
+"
+
+:figure "sample-path2.pdf"
+
+
+:bodytext
+"
+while opening some patches, you might get an error that
+soundfiles are not found
+
+if you receive the error message 
+-Soundfile not found- while opening
+a patch, click on OK and do not try
+to load a soundfile. Simply click
+on cancel in the file selector.
+"

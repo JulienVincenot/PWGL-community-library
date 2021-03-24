@@ -1,0 +1,9 @@
+:section-style :empty
+:section-start "RSMlib definition"
+:bodytext
+"The word rhythm can be highly misleading since it comprises many definitions of different events, thereof, what we analyze depends a lot on what our definition of rhythm is. Our approach is to analyze the rhythmic designs from a variety of theories and point of views making the analyses as rich and multidimensional as possible. Later a weighting system can help us to fine tune the results according to our personal preferences and according to our intuition."
+"The Rhythmic Similarity Measures library (RSMlib) is an attempt of including some of the systems developed in the last years in the hope that the combination of the different measures and approaches in the computer assisted composition and analysis will be valuable for our understanding and control of the relations in the rhythmic domain."
+
+:bodytext"RSMlib brings to Computer Assisted Composition and Analyses a compilation of different methods developed and used for measuring rhythmic similarity. It adds the possibility of combine different ways of retrieve rhythmic information according to several theories being able to weight them at the end of the analyses tree. The Ratcliff/Obershelp algorithm (ro-distance) is implemented in this library for first time applied in the music analyses field. The addition of a weighting algorithm to the Edit distance and to the ro-distance is very meaningful and have proven to be a more accurate, according to our intuition, way of measuring the similarity between rhythmic designs. The implementation of rhythmic generators in a reverse engine fashion is a very interesting aspect of this library, which has proved to be reliable for compositional purposes."
+
+:section-end

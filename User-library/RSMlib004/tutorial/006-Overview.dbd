@@ -1,0 +1,15 @@
+:section-style :empty
+:section-start "Overview"
+:bodytext
+"There is no single Similarity Measure proved to be completely satisfactory. The problems of treating the rhythm as an independent parameter and the many possible ways to understand what we call rhythm, makes any attempt of measuring the similarity between two rhythmic designs a very complex task."
+"Assuming a hybrid approach combining different similarity measures and giving weights to each considering perceptual matters, can give us a more accurate measure of the similarity."
+
+:bodytext"In order to understand the results of our calculations measuring the similarity between rhythms, we should make clear what are we measuring and how do we measure it."
+"To measure properly the similarity between rhythmic designs we should first know what definition of rhythm are we using and in what way we are going to represent the data. So in this library there are several functions denominated 'Feature Extractors'."
+
+:bodytext"Once we have a representation of each rhythmic design to be measured, we can use the 'Similarity Measures'."
+
+:bodytext"The data obtained, if we are using different similarity measures at once, is weighted and returns an 'Average Similarity Value'. A weight-box at the end of the analysis tree can be an interesting and practical approach, but having different measures measuring different aspects of the similarity can give us more complete information about the relations between rhythmic designs."
+"The Similarity Measures will return 1.00 as a perfect match. All the measures are rounded to two decimals, as maximum decimal definition, for keep the numbers easy to intuit."
+
+:section-end

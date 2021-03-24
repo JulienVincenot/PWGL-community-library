@@ -1,0 +1,21 @@
+:section-style :empty
+:section-start "Background"
+:bodytext
+"Measuring the similarity between rhythms is a fundamental problem in computational music theory. It has applications in music information retrieval and computer assisted composition and music analysis."
+
+:bodytext"Rhythmic Similarity Measures are applied in interactive applications like Internet radios, having the audio signal as main source of information. Still, symbolic representation of rhythms - with a score as source - can be helpful for the study of the rhythms and their relations, like (Sandred 2004) points out: "
+:reference
+"
+'Music notation has been a condition for the development of Western Music as we know it today. Notation has given composers the possibility to understand, plan and analyze complex sound events. A composer realizes his musical vision step by step with the help of notation'."
+
+:bodytext"The study of rhythm and information retrieval has given us a set of tools very useful for the purposes of this research. Also the similarity between rhythms has been studied in particular in different fields giving us different similarity measures but none of them has proven to be fully satisfactory."
+
+:bodytext"The work of (Westergard 1962), (Smither 1964), (Lewin 1987), (Marvin 1991), (Orpen&Huron 1992), (Pearsall 1997), (Paulus, Jouni & Klapuri, Anssi 2002) and (Toussaint 2004) among others has been very important in the field of music theory and informatics."
+
+:bodytext"The study of rhythms and its manipulation for compositional reasons has been very valuable giving ways of representing the rhythmic information and generating new rhythmic designs, (Babbitt 1962), (Wuorinen 1979). "
+
+:bodytext"Also the research in other fields like spellchecking algorithms has been important for the purposes of this research. (Damerau, F.J. 1964), (Black, Paul E. 2004). There are other interesting research branches like the Inner Metric Analysis and research based on empirical perceptual factors for instance. The functions derived from these research branches are not implemented in this release of the library."
+:bodytext"The Rhythmic Similarity Measures library (RSMlib) is an attempt of including some of the systems developed in the last years in the hope that the combination of the different measures and approaches in the computer assisted composition and analysis will be valuable for our understanding and control of the rhythmic domain."
+
+:bodytext"RSMlib is a set of tools for study the relations between rhythmic designs helpful for analysts and composers."
+:section-end

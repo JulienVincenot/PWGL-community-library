@@ -1,0 +1,8 @@
+:title-page
+:elements
+
+        #.(list   :title "RSMlib" 
+	 	  :subtitle "Rhythmic Similarity Measures Library"
+                  :version "0.04"
+                  :authors "Josue Moreno"
+                  :copyright "josuemoreno2010")

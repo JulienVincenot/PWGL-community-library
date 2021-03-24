@@ -1,0 +1,33 @@
+:title "ht-pwgl-as library"
+
+
+
+:bodytext
+"
+This library communicates with SuperVP, the sound processing
+enginge of AudioSculpt (IRCAM) to apply parameter control on 
+certain sound treatments.
+
+The original sound, as well as the resulting sound
+are represented inside the PWGL patches. For most
+of the treatments the user does not need to open 
+AudioSculpt.
+
+This library depends on the"
+
+:items
+:list-style :french
+- "sdif-svp library by Mika Kuuskankare and"
+- "the FLAT library by Orjan Sandred"
+- "the kskant library by Kilian Sprotte"
+
+:bodytext
+"
+(c) Hans Tutschku 2009
+email: hans@tutschku.com
+"
+
+
+:link "www.tutschku.com"
+
+

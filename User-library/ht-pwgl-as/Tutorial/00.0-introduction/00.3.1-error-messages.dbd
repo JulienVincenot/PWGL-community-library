@@ -1,0 +1,21 @@
+
+:title "error messages"
+
+
+
+:bodytext
+"
+While opening some patches which have saved links to
+soundfiles, you might get an error that these
+soundfiles are not found.
+This can happen when the referenced soundfile
+does not exist anymore or when patches were exchanged
+between users. 
+
+If you receive the error message -Soundfile not found- 
+while opening a patch, click on OK and do NOT try
+to load a soundfile. Simply click on cancel in the file selector.
+
+The patch will open with empty 2D-Editors.
+
+"

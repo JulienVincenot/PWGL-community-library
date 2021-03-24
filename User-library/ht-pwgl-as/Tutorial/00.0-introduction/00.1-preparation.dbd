@@ -1,0 +1,129 @@
+
+:title "communication between PWGL and supervp"
+
+
+:important
+"The following procedure is only needed once after installing the library."
+
+:section-start
+"open your users/PWGL-users/User-library/sdif-svp folder."
+
+
+:figure "sdif-svp-subfolder.pdf"
+:caption "sdif-svp subfolder"
+
+:important
+"If there are aliases to pm2 and supervp, erase them"
+:section-end
+
+:important
+"If there are files with the extension .xfasl and .clufasl, erase them"
+:section-end
+
+
+
+:section-start
+"open your AudioSculpt folder and select the Kernels subfolder"
+
+
+:figure "as-folder.pdf"
+:caption "AudioSculpt/Kernels subfolder"
+
+:bodytext
+"Select the pm2 alias and press command+R.
+This will open the folder with the pm2 application
+"
+
+:figure "as-folder2.pdf"
+:caption "folder with the binary applications - keep this folder open"
+
+:section-end
+
+:section-start
+"open the Terminal application"
+:bodytext
+"
+(/Applications/Utilities/Terminal)
+
+type
+
+ln -s, followed by a space
+then drag the pm2 icon into the Terminal window.
+Do not hit the return key"
+
+:figure "terminal1.pdf"
+
+
+:bodytext
+"
+Drag the folder icon of the sdif-svp library into
+the Terminal window. Then hit Return.
+"
+
+:figure "terminal2.pdf"
+
+:bodytext
+"
+This creates an alias of pm2 in the sdif-svp folder.
+"
+
+:important
+"do not try to create these aliases by drag and drop in the
+finder - they dont work"
+
+
+:bodytext
+"
+type
+
+ln -s, followed by a space
+then drag the supervp icon into the Terminal window.
+Do not hit the return key. Drag the folder icon of 
+the sdif-svp library into the Terminal window. 
+Then hit Return."
+
+:figure "terminal3.pdf"
+
+:bodytext
+"
+This creates an alias of supervp in the sdif-svp folder.
+"
+:section-end
+
+:section-start "make the aliases executable"
+
+:bodytext
+"type into the Terminal
+
+chmod +x, followed by a space
+
+then drag the newly crated alias of pm2 
+(inside the sdif-svp folder) into the terminal and 
+hit return.
+
+type again
+
+chmod +x, followed by a space.
+Then drag the alias of supervp into the terminal
+and hit return.
+
+"
+:figure "terminal4.pdf"
+
+:bodytext
+"open your users/PWGL-users/User-library/ht-pwgl-as folder."
+
+
+:important
+"If there are files with the extension .xfasl and .clufasl, erase them"
+:section-end
+
+
+:bodytext
+"
+close the Terminal application, close the other windows,
+quit PWGL and restart the program
+
+This finishes the preparation
+
+"
